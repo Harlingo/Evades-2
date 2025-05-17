@@ -1,0 +1,2411 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from 45.61.62.63/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 May 2025 23:08:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Russo%20One" />
+  <script src="../js.hcaptcha.com/1/api.js" async defer></script>
+  <script src="js.cookie.js">
+
+  </script>
+  <script src="../code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="../cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"
+    integrity="sha512-szJ5FSo9hEmXXe7b5AUVtn/WnL8a5VofnFeYC2i2z03uS2LhAch7ewNLbl5flsEmTTimMN0enBZg/3sQ+YOSzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    </script>
+
+  <title>Evades2</title>
+  <script src="msgpack.js">
+
+  </script>
+  <link href="style.css" rel="stylesheet" type="text/css" type='text/css' />
+  <meta name="description"
+    content="Evade enemies, save friends, and unlock new heroes! Multiplayer cooperative roguelike Evades.io fangame.">
+  <!-- Discord Embed -->
+  <meta content="Evades2" property="og:title">
+  <meta
+    content="Evade enemies, save friends, and unlock new heroes! Multiplayer cooperative roguelike Evades.io fangame."
+    property="og:description">
+  <meta content="#2080FF" name="theme-color">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NNHVY71DW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-7NNHVY71DW');
+  </script>
+</head>
+
+<body class="body-menu-bg">
+  <div class="bg" id="bg"></div>
+  <div class="menu">
+    <h1 id="logo" class="logo">
+      Evades2 <br>
+      <span style="color: rgb(84, 191, 236); font-size: 0.55em;">Fan Game</span>
+    </h1>
+
+    <div class="Login" id="loginData">
+      <!-- <input id="username" type="text" autofocus autocomplete="off" spellcheck="false" maxlength=16 placeholder="Username"></input> -->
+      <form method="POST" action="javascript:void(0)" id="loginForm">
+        <input id="username" type="text" value="" placeholder="Username" autocomplete="username" maxlength=16 />
+        <input id="password" type="password" value="" placeholder="Password" autocomplete="current-password"
+          maxlength=32 />
+      </form>
+      <div class="button-container">
+        <button id="guest" class="btn"><span>Guest</span></button>
+        <button id="login" form="loginForm" class="btn"><span>Login</span></button>
+        <button id="register" form="loginForm" class="btn"><span>Register</span></button>
+      </div>
+    </div>
+    <div id="playDiv" style="display:none">
+      <h2 id="loggedInAs">Logged in as Null</h2>
+      <div class="button-container">
+        <button id="play" class="btn"><span>Play</span></button>
+        <br>
+        <button id="hats" class="btn"><span>Hats</span></button>
+        <button id="shop" class="btn"><span>Shop</span></button>
+        <br>
+        <button id="logout" class="btn"><span>Logout</span></button>
+      </div>
+    </div>
+  </div>
+  <div id="changelog" style="display: none;">
+    <button id="closeChangelog">&times;</button>
+    
+    <h1>Changelog</h1>
+    <h3>E-V-A-D-E--T-W-O 11/15/2024</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: #be6216">Volcanic Village</p>Sounds suspicious - Worth 2/5 VP on Areas 21/41. 
+        <p style="color: #be6216">Atomic Alley</p>Sounds suspicious - Worth 5 VP on Area 21 and a new hat. 
+      </li>
+      <p class="header">Heroes</p>
+      <li>
+        <p style="color: #aa2d1c">Lavablob</p> - A hero, who ruled over the village. It is capable of resurrecting other heroes and holding back the enemies.
+      </li>
+      <p class="header">Resurrection</p>
+      <li>
+        Just nothing more to say
+      </li>
+    </ul>
+    <h3>H2O Hard! 3/21/2023</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: #206fab">Watery Water Hard</p>- In celebration of 1000 members on our discord server, a new map has been added despite the game having been formally no longer maintained. Watery Water Hard has arrived with a new cosmetic at the end. Worth 4/6 VP. Have fun!
+      </li>
+    </ul>
+    <h3>It's been a long road. 11/28/2022</h3>
+    <ul>
+      <p class="header">Announcements</p>
+      <li>
+        <p style="color: #f5c33b">This game is no longer going to be maintained.</p> It's been a fun and long road with everyone, and from the team, we would like to offer our greatest thanks to all who have joined us and made this game happen. However, due to financial concerns and Heroku no longer offering free plans, as well as us moving on with our lives, we must put Evades2 to an end.
+      </li>
+    </ul>
+    
+    <h3>H2O! 11/3/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: #11c0f5">Watery Water</p>- Water (chemical formula H2O) is an inorganic, transparent, tasteless, odorless, and nearly colorless chemical substance, which is the main constituent of Earth's hydrosphere and the fluids of all known living organisms (in which it acts as a solvent). It is vital for all known forms of life, despite providing neither food, energy, nor organic mitronutrients. Good luck survivng this. Worth 2/3 VP on Areas 21/41. 
+      </li>
+    </ul>
+    <h3>Boom! 10/31/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: #a898a8">Lifeless Laboratory</p>- A crack Appeared in Area 30. It must've been somewhere around
+        hsh [##] hsh!
+      </li>
+      <p class="header">Heroes</p>
+      <li>
+        <p style="color: #aa6600">Tycoveka</p>- A not yet studied hero. We only know about it's existance.
+      </li>
+    </ul>
+    
+    <h3>Halloween! 10/27/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: #a898a8">Lifeless Laboratory</p>- Penetration into a place with peeling walls, a terrible
+        smell will make you leave it, the exit lies only through the tired core, which....
+      </li>
+      <p class="header">Shop</p>
+      <li>
+        <p style="color: orange">Halloween Hats</p>- Multiple Halloween hats were added. They will be removed from the shop later!
+        <br><b style="color: red">Note that you can only buy one!</b>
+      </li>
+    </ul>
+    
+    <h3>New Map! 10/16/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: #a1901f">Perilous Planetarium</p>- Will you be able to feel the cold of open space in this
+        place filled with stars, and the darkness of the night twilight?
+      </li>
+    </ul>
+    
+    <h3>Small Balancing Update! 7/29/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: grey">There is </p> a NEW SECRET to be unlocked... where could it be <i>stored?</i>
+      </li>
+      <li>
+        <p style="color: red">Wicked War has been balanced, and a victory area has been added to 21 (gives 4 VP, and
+          Area 41 gives 14).
+      </li>
+      <li>
+        <p style="color: cyan">Vacant Voltage Hard VP raised to 17.
+      </li>
+
+
+      <p class="header">Heroes</p>
+      <li>
+        <p style="color: green">Dendo</p>- Size Reduction 80% -> 60%
+      </li>
+      <li>
+        <p style="color: purple">Orbital</p>- Emergency cost decreased 15 -> 10
+      </li>
+      <li>
+        <p style="color: blue">Anuket</p>- Drown ramping speed decreased
+      </li>
+      <li>
+        <p style="color: cyan">Floe</p>- Shard size decrease 25 -> 22 but they now shatter enemies on contact. Ice
+        protected length 4s -> 5s
+      </li>
+      <li>
+        <p style="color: navy">Neuid</p>- Phase energy cost 15 -> 10
+      </li>
+      <li>
+        <p style="color: #a1c5d4">Seiun</p>- A bug where no invincibility would be given after dash has been fixed
+      </li>
+      <li>
+        <p style="color: orange">Sicario</p>- Gun down now kills enemies for 3s and stuns them for 1.8s (up from
+        2.5s/1.3s). The gun down bullet also shrinks 10% slower. Energy cost reduced from 10 to 5.
+      </li>
+      <li>
+        <p style="color: red">Scoria</p>- needs at least 10 energy to initiate trail.
+      </li>
+      <li>
+        <p style="color: #c6dbb2">Quetzal</p>- needs at least 8 energy to initiate trail.
+      </li>
+      <li>
+        <p style="color: #5e4d66">???</p>- ???...
+      </li>
+    </ul>
+    
+    <h3>Huge Balancing Overhaul! 6/26/22</h3>
+    <ul>
+
+      <p class="header">Maps</p>
+
+      <li>
+        <p style="color: purple">Lazy Labyrinth</p>- Can you resist succumbing to laziness, or will you become like the
+        rest?
+      </li>
+      <p class="header">Balancing</p>
+      <li>Verglas - 2nd ability now kills for 1.5s and freezes for 0.5s. First ability boost is faster at first but
+        tapers off more quickly (allows for an easier reaction to where you will end up)</li>
+      <li>Cimex - First ability cooldown reduced to 7.5s. Upon devouring webs, all players in each web gets 15 energy
+        (being in multiple webs stacks).</li>
+      <li>Heusephades - Fire fixed, water now makes enemies 50% smaller too</li>
+      <li>Quetzal - Slime trail now disables enemies, but has a nerfed expanding rate and regen. Escargo duration 3.5s
+        -> 2s but it now has 100% push strength, and you can press X/K while an escargo is active to reverse its
+        direction</li>
+      <li>Paladin - First ability now costs 25 energy</li>
+      <li>Orbital - Increased guard size 17 -> 20. Guards can now rekill dead enemies with less than 1s, and can kill up
+        to 23 -> 35 enemies before dying</li>
+      <li>Anuket - Drown cost changed from 7.5 energy/s to triple the regen/s. Suffocate now kills the enemies for 1.5s.
+      </li>
+      <li>Janus - Portal life and cooldown both reduced by 2s.</li>
+      <li>Torpedo - Missile cooldown 9s -> 8s and energy cost 30 -> 20, Snatch cooldown 5s -> 5.5s and projectile count
+        16 -> 12 and energy cost 5 -> 10</li>
+      <li>Thoth - Gives 1s invincibility when ressing to everyone in radius</li>
+      <li>Cellator - Diffusion size increase amount decreased 20% -> 15%</li>
+      <li>Dendo - Stealth size decrease changed 80% -> 20%</li>
+      <li>Gizmo - Trojan range increased 150 -> 200</li>
+      <li>Kindle - Ignite energy cost increased 10 -> 15</li>
+      <li>Floe - Liquid size increased 50% -> 60%, Solid state slowdown 90% -> 80%. Permafrost ability slightly
+        reworked.</li>
+      <li>Megarim - Cloak invincibility time rounded up from 0.57s -> 0.6s and also gains 0.2s invincibility immediately
+        after using cloak (not cummulative)</li>
+      <li>Neuid - Fluidize range increased 200px -> 250px and cooldown increased 2.5s -> 3s</li>
+
+      <li>Celestial - Ability 1 reworked</li>
+      <li>Neuid - Ability 1 reworked</li>
+      <li>Seiun - Ability 2 reworked</li>
+      <li>Other minor bug fixes</li>
+
+    </ul>
+    <h3>New maps and heroes! 6/22/2022</h3>
+    <ul>
+
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: grey">Grimly Gallows</p>- Traverse through this gloomy and strange territory - can you beat
+        death at its own game? Awards a new hero - Megarim!
+      </li>
+      <li>
+        <p style="color: orange">Wicked War</p>- Will you survive the war and succesfully infiltrate the enemy? Awards a
+        new hero - Sicario! (Warning - Extremely Difficult)
+      </li>
+      <p class="header">Balancing</p>
+      <li>Toilsome Traverse has been balanced, and overall nerfed. Still worth the same amount of VP.</li>
+      <p class="header">Shop</p>
+      <li>
+        <p style="color: white">Seasonal Hats</p>- All 4 seasonal hats are now for sale, although depending on the
+        current season in the Northern Hemisphere, hats will cost more or less! Credits to Corrupt Z for making these
+        hats.
+      </li>
+    </ul>
+    <h3>Some content and changes! 5/26/2022</h3>
+    <ul>
+
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: black">Impossible Isle</p>- It's impossible. Just don't. If you do manage to beat it, you get ∞
+        VP and a hat!
+      </li>
+      <li>
+        <p style="color: black">Terrifying Tomb Hard</p>- GO AWAY BEFORE YOU EVEN BOTHER ENTERING ITS TOO SCARY IM
+        PROCTECTING YOU JUST TRUST ME STOP Awards 7 VP and a new hat. (PS - You can /dc to disconnect)
+      </li>
+      <li>
+        <p style="color: brown">Permeating Perpetuity Hard</p>- This leads down a much more dangerous path, be careful.
+        4 VP awarded!
+      </li>
+      <li>
+        <p style="color: navy">Crazy Cosmos Hard</p>- Completely remade. Those who had the Crazy Aura before have now
+        lost it. Still worth 6 VP, although slightly harder than before.
+      </li>
+      <li>
+        <p style="color: grey">Crowded Cavern Hard</p>- Nerfed Area 34.
+      </li>
+      <li>
+        <p style="color: pink">Monumental Migration+ OG</p>- The current MM+ is actually a remade/revamped version of a
+        very very old MM+ (which was playable on release). The old MM+ is somehow restored... and is now located by
+        going into the left portal of normal Monumental Migration. Note that it is 400 Areas long, really unfair/unfun,
+        and DOES NOT GIVE ANY REWARDS. It's just here for sentimental purposes.
+      </li>
+      <li>
+        <p style="color: purple">Speculative Stratosphere Hard</p>- Areas 8-9 no longer have no ability. Area 10 has
+        been heavily nerfed, but will keep the no ability. Still worth the same VP amount.
+      </li>
+      <p class="header">Bug Fixes</p>
+      <li>Path enemies should be fixed.</li>
+
+    </ul>
+    <h3>Minor changes! 5/18/2022</h3>
+    <ul>
+
+      <p class="header">Heroes</p>
+      <li>
+        <p style="color: grey">Umbra</p>- When the first ability is used within 2 seconds of being revived, the first
+        ability will not shoot the res projectile. First ability cost 15 -> 25 energy.
+      </li>
+
+    </ul>
+    <h3>New servers and some changes! 5/18/2022</h3>
+    <ul>
+
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: purple">Speculative Stratosphere Hard</p>- The ultraviolet radiation becomes extremely
+        dangerous. Awards 11 VP and a new cosmetic on Area 11.
+      </li>
+
+      <p class="header">Heroes</p>
+      <li>
+        <p style="color: green">Electrode</p>- Can no longer gain energy from enemies while in safezones. After hitting
+        an enemy, cannot gain energy for 0.6s
+      </li>
+      <li>
+        <p style="color: red">Scoria</p>- Lava orb now costs 30 energy.
+      </li>
+
+      <p class="header">Duels</p>
+      <li>All duels now have larger Area size in width than height, because of how screens are oriented.</li>
+      <li>Arena mode changes - higher default speed. Balls spawn more often. Using shift slows you by 75% but lets you
+        slowly gain energy back.</li>
+
+
+      <p class="header">New Servers</p>
+      <li>NA4 and EU3 have arrived. Warning - May be unstable at first, report bugs in the discord. (Link in bottom left
+        of homepage)</li>
+      <p class="header">Bug Fixes</p>
+      <li>Fixed a bug where slowdrainswitch enemies still depleted Electrode's energy rapidly.</li>
+
+
+    </ul>
+    <h3>New maps and bug fixes! 5/10/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: #78bf8b">Chaotic Climate</p>- Now worth 5 VP and an Aura on Area 21!
+      </li>
+      <li>
+        <p style="color: gray">Calamitic Coliseum</p>- Map fixed, now it is possible.
+      </li>
+      <li>
+        <p style="color: blue">Little Land Hard</p>- Can you survive on this island of torture? Worth 3 VP on Area 21.
+        Gives 11 VP and a new trail on Area 41. Map created by: Shikki.
+      </li>
+      <p class="header">Duels</p>
+      <li>New modes: Sauna, Arena</li>
+
+
+      <p class="header">Bug Fixes</p>
+      <li>Enemy update pack optimized.</li>
+      <li>Bug where enemies rendered where they shouldn't be fixed.</li>
+
+
+    </ul>
+    <h3>Update! 5/10/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: #78bf8b">Chaotic Climate</p>- This climate is quite wacky indeed. Gives 3 VP on Area 21! Map
+        made by: Executor...?
+      </li>
+      <li>
+        <p style="color: yellow">Peaceful Plains</p>- The map now has a trail.
+      </li>
+      <li>
+        <p style="color: orange">Arduous Abyss</p>- The entire map has recieved a revamp, and is now 41 areas long but
+        much higher quality. Awards 4 VP on Area 41.
+      </li>
+
+      <p class="header">Cosmetics</p>
+      <li>
+        <p style="color: grey">Catastrophic Trail</p>- Fixed a bug where Catastrophic Trail did not render in the
+        correct color.
+      </li>
+      <li>
+        <p style="color: grey">Crowns</p>- Updated Bronze Crown, Silver Crown, Gold Crown, and Platinum Crown (also by
+        Corrupt Z).
+      </li>
+      <li>
+        <p style="color: red">Devil Hat</p>- The tail is finally positioned correctly.
+      </li>
+
+      <p class="header">Balancing</p>
+      <li>
+        <p style="color: green">Electrode</p>- Hero was simplified tremendously. Changes are too long to list, but you
+        can check the updated hero card. The biggest change is that the hero now has 2 abilities as normal instead of
+        what was technically 4.
+      </li>
+      <li>
+        <p style="color: yellow">Rameses</p>- Bandages are now put on over 8s, and fall off over 0.9s. Cost increased 25
+        -> 40 energy.
+      </li>
+
+      <p class="header">Quality of Life</p>
+      <li>
+        <p style="color: white">Optimizations</p>- Hopefully less lag than before!
+      </li>
+    </ul>
+    <h3>Major update! 5/7/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: #00ff00">Vacant Voltage</p>- The electricity buzzes constantly around you... although not so
+        helpful and friendly as you hoped. Worth 3 VP on Area 41, and gives a new hero!
+      </li>
+      <li>
+        <p style="color: #00aa00">Vacant Voltage Hard</p>- Escape before you get electrocuted with the lethal amount of
+        electricity in this map. Worth 9 VP on Area 41, and along with the VV hero, gives a new trail!
+      </li>
+
+      <li>
+        <p style="color: aquamarine">Glamorous Glacier Hard</p>- This region is so cold that just moving will slowly
+        deplete your energy (it gets harsher as it goes on). Worth 6 VP on Area 41. Gives 9 VP and a new trail on Area
+        81!
+      </li>
+      <li>
+        <p style="color: grey">Hypnotic Hill Hard</p>- Nerfed first half slightly as well as Area 34. Now worth 5/12 VP.
+      </li>
+      <li>
+        <p style="color: purple">Easy Evasion Insane & Extreme</p>- EEI is now worth 7 VP, and EEE is worth 11 VP.
+        Slight nerfs applied to various areas in EEE.
+      </li>
+      <li>
+        <p style="color: cyan">Glamorous Glacier</p>- Area 80 nerfed. VP on Area 80 reduced to 4 (yes, that's how hard
+        80 was).
+      </li>
+      <li>
+        <p style="color: blueviolet">Crazy Cosmos Hard</p>- Now gives a new cosmetic.
+      </li>
+      <li>
+        <p style="color: lightpink">Methodical Monastery Hard</p>- Now gives a new cosmetic.
+      </li>
+      <li>
+        <p style="color: #968980">Crowded Cavern Hard</p>- Now gives a new cosmetic.
+      </li>
+
+      <p class="header">Cosmetics</p>
+      <li>
+        <p style="color: grey">Trails</p>- Most trail rendering improved! Should look much smoother now.
+      </li>
+      <p class="header">Balancing</p>
+      <li>
+        <p style="color: grey">Quetzal</p>- The slime trail now gets bigger over time.
+      </li>
+      <li>
+        <p style="color: brown">Ptah</p>- Can now gain 2 layers passively. Fixed a bug where Ptah would lose layers
+        instantly from Sniper Bullets.
+      </li>
+      <li>
+        <p style="color: yellow">Heusephades</p>- First ability cooldown reduced to 1.25 seconds, second ability
+        cooldown reduced to 7 seconds.
+      </li>
+
+      <p class="header">Quality of Life</p>
+      <li>
+        <p style="color: white">Sniper Bullets</p>- Bullets which directly kill you now have an outline (if one of them
+        doesn't, report it as a bug report in the discord! Bottom left of homepage!)
+      </li>
+      <li>
+        <p style="color: sky">Bug Fixes</p>- Many game-breaking unfair bugs such as enemies getting infinitely big have
+        been fixed.
+      </li>
+
+    </ul>
+    <h3>New maps! 5/3/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: grey">Monochrome Mission Hard</p>- Impossible. Don't even try. Gives 19 VP and a new hat on
+        Area 21!
+      </li>
+      <li>
+        <p style="color: purple">Easy Evasion Insane & Extreme</p>- So... Easy Evasion Hard wasn't enough for you? Take
+        these. Best of luck... EEI gives 5 VP while EEE gives 8 VP. EEH was reduced to 3 VP as it has been slightly
+        nerfed. Both EEI and EEE give new outlines!
+      </li>
+      <p class="header">Cosmetics</p>
+      <li>
+        <p style="color: grey">Helmet</p>- This hat is earned from beating Calamitic Coliseum! Credits to Zade for
+        making this hat!
+      </li>
+      <li>
+        <p style="color: red">Clown Hat</p>- This hat is earned from beating i eat idiot! Credits to Piger for making
+        this hat!
+      </li>
+      <li>
+        <p style="color: pink">Shop</p>- A Cat hat at 325 VP and a Pig hat at 1755 VP have been added to the shop!
+        Credits to Piger for making these hats!
+      </li>
+
+    </ul>
+    <h3>More QoL and Content! 5/3/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: grey">Calamitic Coliseum</p>- A new map, featuring surviving in arenas and an ACTUAL
+        BOSSFIGHT!!! Huge credits to Piger for making this extremely unique and interesting map! Worth 10 VP on Area
+        12-13. Note: This map is extremely complicated in mechanics and thus may be buggy. Report bugs in the discord!
+        Bottom left corner of homepage for link.
+      </li>
+      <li>
+        <p style="color: blue">Hypnotic Hill Hard</p>- Truly hypnotic - in fact, the entire area may pull you in a
+        direction after a certain point... Awards 6 VP on Area 21, and gives 13 VP and a new hat on Area 41!
+      </li>
+      <li>
+        <p style="color: blue">Hypnotic Hill</p>- Some areas were nerfed. These include Areas 40, 40, 40, 40, 40, 40,
+        40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, and maybe 28.
+      </li>
+      <li>
+        <p style="color: red">become sus</p>- Almost every normal ball is now immunecorrosive in order to prevent hero
+        abuse.
+      </li>
+
+      <p class="header">Quality of Life</p>
+      <li>
+        <p style="color: pink">Hard Variants</p>- All Hard Variants are now accessed from the left side of their
+        constituent map. Catastrophic Core is accessed from a small red square in Corrupted Core Area 1, while
+        Monumental Migration is accessed through the left of Monumental Migration+.
+      </li>
+      <li>
+        <p style="color: purple">Captcha</p>- Due to the recent increase in botting and multiboxing, a Captcha is now
+        implemented. We apologize for the inconvineince to real users, but this was a neccesary measure. There is also
+        now protection against CORS.
+      </li>
+
+    </ul>
+    <h3>Massive QoL Overhaul! 4/27/2022</h3>
+    <ul>
+      <p class="header">Balancing</p>
+      <li>
+        <p style="color: blue">Neuid</p>- Neuid's 2nd ability now makes enemies fluidized for 5 seconds. Upon hitting an
+        enemy in Neuid's 1st ability which you cannot tank through, the enemy now dies for 1.5s, instead of granting you
+        with invincibility.
+      </li>
+
+      <p class="header">Quality of Life</p>
+      <li>
+        <p style="color: pink">Bugs</p>- A game breaking bug allowing a complete cheese of any map was fixed. Code was
+        also optimized.
+      </li>
+      <li>
+        <p style="color: purple">UI</p>- Some UIs were revamped. The entire game was also zoomed out a little. This may
+        cause some unexpected behavior though, report them in #bug-reports in the discord! (Link in bottom left corner
+        of the homepage)
+      </li>
+      <li>
+        <p style="color: grey">Stats</p>- Added Fps and Ping counter next to the existing kbps counter
+      </li>
+
+    </ul>
+    <h3>Balancing! 4/25/2022</h3>
+    <ul>
+
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: pink">Accelerating Aisle Hard</p>- Areas 1-5, 11-15, 21-25, and 31-35 took heavy buffs, while
+        Area 40 took a heavy nerf.
+      </li>
+      <li>
+        <p style="color: blue">Scorching Shaft Hard</p>- Welcome to the blazing heat where you shall be burned alive. Be
+        extra careful here... awards 6 VP on Area 41! Gives 8 VP and a NEW TRAIL on Area 81!
+      </li>
+      <li>
+        <p style="color: red">Snail Salon Hard</p>- Now with extra salt, if you know what I'm talking about. Gives 6 VP
+        and a NEW TRAIL on Area 21!
+      </li>
+
+      <p class="header">Balancing</p>
+      <li>
+        <p style="color: grey">Cimex</p>- Webs slow by 75% instead of 90% now (Don\'t worry, second ability will be
+        buffed/reworked, this is just temporary because the old first ability could do a nearly complete break)(
+      </li>
+      <li>
+        <p style="color: red">Torpedo</p>- Missile's trail is no longer extremely long, although it slows for a little
+        longer. Snatch now kills for 4 seconds, although it stll freezes for the same amount of time.
+      </li>
+      <li>
+        <p style="color: yellow">Rameses</p>- Putting on band is 2x faster in safezones instead of 3x.
+      </li>
+      <li>
+        <p style="color: blue">Neuid</p>- First ability lasts 6.5s instead of 3s. <h6>added due to repeated badgering by
+          ama</h6>
+      </li>
+      <li>
+        <p style="color: grey">Celestial</p>- Second ability now revives the hero upon use, although it sends back 10
+        areas instead of 5.
+      </li>
+      <li>
+        <p style="color: pink">Paladin</p>- Boomerang comes back a little slower.
+      </li>
+      <li>
+        <p style="color: blue">Orbital</p>- Due to a change in the gravitational field, orbitals will now interfere with
+        each other if they are touching. They will lose energy. Orbital's second ability now costs 15 energy instead of
+        5, but is slightly buffed.
+      </li>
+      <li>
+        <p style="color: orange">Felony</p>- Drive now gives 8 speed. While in drive, using shift will freeze the hero.
+      </li>
+      <li>
+        <p style="color: sky">Verglas</p>- The first ability's boost is now even stronger right upon use but dissapates
+        faster (for the math geeks, the curve is now 1/x^3 instead of 1/x)
+      </li>
+      <li>
+        <p style="color: purple">Kamino</p>- Teleporting to the clone no longer kills it, but it only gives .5s invinc.
+      </li>
+      <li>
+        <p style="color: green">Dendo</p>- First ability lasts for 5 seconds instead of 3.
+      </li>
+      <li>
+        <p style="color: pink">Neko</p>- Now has a second ability!
+      </li>
+
+    </ul>
+    <h3>New content! 4/24/2022</h3>
+    <ul>
+
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: blue">Wistful Warping Hard</p>- A buffed version of Wistful Warping. Best of luck. Players can
+        warp from top to bottom as well, by the way! Awards 4 VP on Area 21! Gives 6 VP and a NEW HAT on Area 41!
+      </li>
+      <li>
+        <p style="color: purple">Easy Evasion Hard</p>- Area 21 gives a NEW OUTLINE - It's quite silly, though.
+      </li>
+      <li>
+        <p style="color: pink">Accelerating Aisle Hard</p>- A buffed version of Accelerating Aisle. The catch? Players
+        now slowly speed up every area until they pass the next boss area. Good luck! Gives 6 VP and a NEW TRAIL on Area
+        41!
+      </li>
+
+      <p class="header">Balancing</p>
+      <li>
+        <p style="color: pink">Seiun</p>- You can no longer save people when invicible from first ability. (Goodbye,
+        chainers!)
+      </li>
+      <li>
+        <p style="color: blue">Gizmo</p>- Pad 3 max uses -> 2 uses
+      </li>
+
+      <p class="header">Quality of Life</p>
+      <li>Timer fixed, new accounts can now properly join games, as well as some other small bugs fixed.</li>
+    </ul>
+    <h3>Minor update! 4/11/2022</h3>
+    <ul>
+
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: purple">Easy Evasion Hard</p>- A buffed version of Easy Evasion. The name is quite the
+        confusion. Awards 4 VP on Area 21.
+      </li>
+      <p class="header">Cosmstics</p>
+      <li>
+        <p style="color: pink">Sakura Blur</p>- A pricy but cool-looking petal-shaped blur. Find it in the shop for 1440
+        VP.
+      </li>
+      <p class="header">Balancing</p>
+      <li>
+        <p style="color: yellow">Rameses</p>- Band applies 3 times slower in active areas, although the normal time to
+        apply bandage has been reduced to 2.5 seconds.
+      </li>
+      <p class="header">Quality of Life</p>
+      <li>Timer fixed, new accounts can now properly join games, as well as some other small bugs fixed.</li>
+    </ul>
+    <h3>Some content and bug fixes! 4/3/2022</h3>
+    <ul>
+      <p class="header">Cosmetics</p>
+      <li>
+        <p style="color: white">h</p>- Really isn't worth it. (Find it in the shop)
+      </li>
+      <li>
+        <p style="color: white">hu</p>- This is, though! (Find it in the shop)
+      </li>
+
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: pink">Easy Evasion</p>- Welcome to a beginner's dream - an area where you can just relax in!
+        Worth 1 VP and is only 20 areas long.
+      </li>
+      <p class="header">Quality of Life</p>
+      <li>Lots of weird reconnection and teleportation bugs were patched, as well as hero + reconnection abuse.</li>
+    </ul>
+    <h3>Quick changes! 4/5/2022</h3>
+    <ul>
+
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: grey">Cataclysmic Catastrophe</p>- Now removed. Until next event! Troll trail will remain as an
+        exclusive trail, although it probably will be obtainable again at some point in the future.
+      </li>
+      <p class="header">Bug Fixes</p>
+      <li>You can no longer buy items in game.</li>
+      <p class="header">Quality of Life</p>
+      <li>Hero Card Recolored</li>
+    </ul>
+    <h3>New map! 4/3/2022</h3>
+    <ul>
+
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: purple">Oblique Oblivion</p>- What's the point of playing this? You may beat it, but you will
+        never truly win. There will always be an additional obstacle to overcome. What's the point of playing anything,
+        actually? Worth 2 VP on area 8.
+      </li>
+      <p class="header">Quality of Life</p>
+      <li>Lighting on death screen fix, as well as numerous other small bugs.</li>
+    </ul>
+    <h3>Some content and bug fixes! 4/3/2022</h3>
+    <ul>
+      <p class="header">Cosmetics</p>
+      <li>
+        <p style="color: white">h</p>- Really isn't worth it. (Find it in the shop)
+      </li>
+      <li>
+        <p style="color: white">hu</p>- This is, though! (Find it in the shop)
+      </li>
+
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: pink">Easy Evasion</p>- Welcome to a beginner's dream - an area where you can just relax in!
+        Worth 1 VP and is only 20 areas long.
+      </li>
+      <p class="header">Quality of Life</p>
+      <li>Lots of weird reconnection and teleportation bugs were patched, as well as hero + reconnection abuse.</li>
+    </ul>
+    <h3>Minor Update! 4/2/2022</h3>
+    <ul>
+      <p class="header">Cosmetics</p>
+      <li>
+        <p style="color: white">Troll Trail</p>- Trolls managed to lose weight! This can't be real...
+      </li>
+      <p class="header">Balancing</p>
+      <li>
+        <p style="color: brown">Ptah</p>- The initial nerf was just a prank for April Fools, and the clay loss time has
+        been put back to 0.2s. However, a nerf will still be implemented. You can no longer gain more than 1 layer
+        passively, but you can get to 3 with your second ability.
+      </li>
+      <li>
+        <p style="color: #bba3c9">Paladin</p>- Lots of changes have been made throughout the day, but to summarize, when
+        using the second ability, instead of losing its size instantly in safe zones, it slowly loses it over time. The
+        size at which Ability 2 will grant you invincibility has also been nerfed.
+      </li>
+
+      <p class="header">Quality of Life</p>
+      <li>Unfortunately, we were sued by InnerSloth and had to rename our game back to Evades2</li>
+      <li>The chat's background is a less vibrant, as it seemed to harm people's eyes.</li>
+
+      <p class="header">Announcements</p>
+      <li>For those who didn't follow, the "ending of e2" was just a prank for April Fools! We won't be stopping in the
+        near future!</li>
+    </ul>
+    <h3>Huge Update + Announcement. 4/1/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: red">New map - Cataclysmic Catastrophe</p>- Welcome to pure, unfiltered hell. Gives a new trail
+        at the end!
+      </li>
+      <p class="header">Quality of Life</p>
+      <li>After seeing that the game's name was unfit for what it contains, we have renamed it! Welcome to Among Us 2!
+      </li>
+      <li>The chat's background is a little more vibrant now!</li>
+
+      <p class="header">Announcements</p>
+      <li>Sadly, this day marks the end of this game. Due to various reasons this site will no longer get updates.
+        I would like to thanks all the Mods, Supporters, and Users and who helped keep this site alive all these months.
+        This has truly been a wild ride.</li>
+    </ul>
+    <h3>MASSIVE UPDATE!!! 03/31/2022</h3>
+    <ul>
+      <p class='header'>Maps</p>
+      <li>
+        <p style="color:grey; font: size 30px;">Ultimate Universe</p> Welcome to a journey through 360 unique areas,
+        traveling through several biomes and realms in this vast dimension. Many prizes await you! Have fun, and good
+        luck!
+      </li>
+      <li>
+        <p style="color:red; font: size 30px;">Furious Fraud</p> Areas have been balanced. Changes include slight nerfs
+        to Area 20 and 40, but with heavy buffs on 21-25 and 28-39.
+      </li>
+      <li>
+        <p style="color:#55aa33; font: size 30px;">Mouse Mastery</p> The map has been extended to 20 areas. VP nerfed
+        from 3 to 2.
+      </li>
+      <li>
+        <p style="color:#aaaaaa; font: size 30px;">Become Sus</p> It's actually sus now.
+      </li>
+      <li>
+        <p style="color:#57524a; font: size 30px;">Insidious Invasion</p>The enemies, after being defeated for 20 areas,
+        decide that they have had enough, now doing all it takes - including exploiting cheap strategies - to get rid of
+        you. The map is now 40 areas long, and awards 7 VP and a new hat at the end!
+      </li>
+      <p class='header'>Heroes</p>
+      <li>
+        <p style="color:#bba3c9; font: size 30px;">Paladin</p>Unlock this brave and virtuous hero at Ultimate Universe
+        121
+      </li>
+      <li>
+        <p style="color:#6b7480; font: size 30px;">Seiun</p>Unlock this divine and extraterrestrial hero at Ultimate
+        Universe 241
+      </li>
+      <li>
+        <p style="color:#8fa191; font: size 30px;">Celestial</p>Unlock the ultimate ruler of the universe at nowhere
+        else than the very end: Ultimate Universe 361
+      </li>
+      <p class='header'>Cosmeics</p>
+      <li>The <span style="color: gold">VP Shop</span> has launched! Buy cosmetics by using the victory points you gain
+        from beating maps! These items range from cheap and affordable to truly luxorious! Note - your total VP earned
+        will still be shown on your profile!</li>
+      <li>There is now a new type of cosmetic - Outlines! These can be worn in conjunction with Hats and Trails!</li>
+      <li>Along with the introduction of the Shop comes a ton of new hats, trails, and outlines! Go take a look in the
+        shop for a full list!</li>
+      <li>The Omnipotent Trail has been given a slight glow!</li>
+      <p class='header'>Balancing</p>
+      <li>All map VP rewards have been rebalanced, with special thanks to Maikri!</li>
+      <li>Ptah has been nerfed. Clay is lost more quickly, now.</li>
+      <li>Panzer and Magno's first abilities will now push you out as well.</li>
+      <li>Scoria can no longer create a lava orb while standing too close to another lava orb. The radius in which it
+        cannot create another lava orb is marked by a slightly larger aura.</li>
+      <li>Teleporting to Kamino's clone now gives 1 second of invincibility. Kamino's laser now kills enemies for 2
+        seconds.</li>
+      <li>Anuket's second ability now kills enemies for 1 second and freezes them for 0.5. Anuket's first ability slows
+        down enemies much faster, but caps earlier.</li>
+      <li>Torpedo's second ability now shoots 16 bullets, although it only freezes enemies for 0.2s now.</li>
+      <li>Gizmo's pad now wears down.</li>
+      <p class='header'>Quality of Life</p>
+      <li>New major feature - Reconnection! If you crash or accidentally reload your page, you can restore your progress
+        by simply rejoining. This can even be used to switch servers mid-run if one starts to lag badly. Your progress
+        is saved every 15 seconds, and saved instantly upon refreshing. This is a highly experimental feature, so please
+        report any bugs in the Discord! You can find the discord link in the bottom left of the homepage! Note that
+        abilities being used, such as Bandage, not transferring between sessions is intentional to prevent abuse.</li>
+      <li>The server buttons now display player counts on them - no more needing to guess if a server is empty or not!
+      </li>
+      <li>There are now ability images in the hero card! You can hover over them to see their description!</li>
+      <p class='header'>Map Maker</p>
+      <li>There is now an official Map Editor located at <a
+          href="https://e2mapmaker.adiprk.repl.co/">https://e2mapmaker.adiprk.repl.co</a>. It is currently unfinished,
+        though.</li>
+      <p class='header'>Misc</p>
+      <li>Interpolation was improved significantly, and should run better now!</li>
+      <li>Lots of changes have been done to the backend. Certain long-lasting bugs with projectiles have been hopefully
+        fixed. Additionally, map makers now have a few more features to work with - an example being spawners within
+        spawners.</li>
+      <li>A couple new moderation commands have been added, such as /servlock, which functions in the same way as chat
+        locking but prevents joining. Beware, chat spammers and exploiters...</li>
+      <li>Buttons in the home page are more responsive.</li>
+    </ul>
+    <h3>New hats and map! 02/17/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: grey">Depressive Dungeon</p> Make your way through the dark, depressing dungeon filled with the
+        stench of death. Worth 1/2/3/4 VP on Areas 21, 41, 61, and 83.
+      </li>
+      <p class="header">Hats</p>
+      <li>New Bear Hat found at Area 41 of Depressive Dungeon</li>
+      <li>New neko Paw Trail found at Area 83 of Depressive Dungeon</li>
+      <li>New hat Bouncy found at the end of Breezy Bounce Hard</li>
+    </ul>
+    <h3>Balancing and content! 02/14/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: blue">New Hidden Map</p>- Good luck finding this realm of difficult but skill based dodging
+        areas. <span style="color: gold">Made to honor an extremely skilled Evades.io veteran.</span> Warning - might be
+        a little <span style="color: red">disturbing...</span> worth 15 VP on Area 29, and gives a new trail!
+      </li>
+      <p class="header">Content</p>
+      <li>New Trail, buried deep inside the Cryptic Corridor. Given to those who posess knowledge of the secrets of the
+        universe.</li>
+      <li>New Trail, awarded to those who survive the catastrophic apocalypse.</li>
+      <li>3 new trails which will be awarded in some future tournaments!</li>
+      <p class="header">Heroes</p>
+      <li>Janus's portal now gives 0.7s of invincibility, and you can no longer teleport if you are affected by the
+        invincibility of the portal (and for a few frames after)</li>
+      <p class="header">Balancing</p>
+      <li>Daunting Dimension 121 now gives 17 VP</li>
+      <li>Furious Fraud 41 now gives 12 VP</li>
+      <li>Little Land 41 now gives 5 VP</li>
+    </ul>
+    <h3>Bug fix! 02/11/2022</h3>
+    <ul>
+      <li>Umbra bug is now fixed!</li>
+    </ul>
+    <h3>New Content! 02/09/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: navy">Boss Brawl</p>- Areas 41-81 are completely <span style="color: gold">unique!</span> The
+        bosses have <span style="color: black">mutated</span> into something never seen before in the universe. Might be
+        a little <span style="color: red">disturbing...</span> worth 2 VP on Area 41 and 4 VP on Area 81!
+      </li>
+      <p class="header">Heroes</p>
+      <li>
+        <p style="color: purple">Kamino</p>- Kamino's clone no longer does anything when it's too close to the player.
+        Otherwise, it's size has also been nerfed.
+      </li>
+      <li>
+        <p style="color: grey">Quetzal</p>- Quetzal's trail lasts almost 2x longer, gives players 4 speed (with itself
+        and other quetzals gaining 6 speed), and slows enemies by 60% (up from +3 speed and -20%)
+      </li>
+      <p class="header">Hats</p>
+      <li>
+        <p style="color: red">Fire Trail</p>- Found upon losing all your sanity in fury, having gone through a hellhole
+        of flames.
+      </li>
+      <li>
+        <p style="color: grey">Dark Trail</p>- Found at the very end of our dark reflection, hidden in the depths of
+        another dimension.
+      </li>
+    </ul>
+    <h3>Quality of Life! 02/08/2022</h3>
+    <ul>
+      <p class="header">Bugs</p>
+      <li>
+        <p style="color: red">Projectiles</p>- Fixed a humongous bug with the way projectiles are deleted. Not only
+        should this fix projectile desync/stopping for a frame, it should also fix ghost bullets once and for all.
+      </li>
+      <li>
+        <p style="color: green">Player Size</p>- When you joined the server, other players always defaulted to the
+        normal size, even if they were bigger or smaller. This was fixed.
+      </li>
+      <li>
+        <p style="color: blue">Duels</p>- Duels no longer crash the server.
+      </li>
+      <p class="header">Heroes</p>
+      <li>
+        <p style="color: purple">Kamino</p>- The clone is now bigger when further away, and extremely tiny when close.
+      </li>
+      <li>
+        <p style="color: cyan">Verglas</p>- Now shoots seven bullets with its second ability.
+      </li>
+      <li>
+        <p style="color: gray">Cimex</p>- Pressing Z mid-throw now actually expands the webs as intended.
+      </li>
+      <li>
+        <p style="color: pink">Parvulus</p>- Loses size a little bit faster. (1.6s/tick -> 1.4s/tick). Second ability
+        lasts a little less. (1.5s -> 1.4s).
+      </li>
+      <li>
+        <p style="color: red">Scoria</p>- Scoria's trail is now slightly bigger (69 -> 79 size)
+      </li>
+      <li>
+        <p style="color: cyan">Janus</p>- Janus's portal now costs 15 energy instead of 30
+      </li>
+      <p class="balancing">Balancing</p>
+      <li>Snail Salon is now 2 VP</li>
+      <li>Little Land 41 is now 9 VP</li>
+      <li>Breezy Bounce Hard is now 7 VP</li>
+      <li>Crowded Cavern Hard 81 is now 11 VP</li>
+      <li>Monochrome Mission is now 10 VP</li>
+      <li>Glamorous Glacier 81 is now 9 VP</li>
+      <li>Daunting Dimension is now 6, 11, 16 VP</li>
+      <li>Furious Fraud is now 18 VP</li>
+      <li>Hypnotic Hill is now 1, 6 VP</li>
+      <li>i eat idiot is now 5 VP</li>
+      <li>Scorching Shaft is now 2, 3 VP</li>
+      <li>Methodical Monastery Hard is now 8 VP</li>
+      <p class="other">Other</p>
+      <li>Added a very important moderation tool.</li>
+    </ul>
+    <h3>Maps! 02/07/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: red">New map - Furious Fraud</p>- "Turn back... Please turn back..." Worth 15 VP.
+      </li>
+      <li>
+        <p style="color: green">New map - Breezy Bounce Hard</p>- "Do you love bouncing?" Worth 5 VP.
+      </li>
+      <li>
+        <p style="color: brown">Insidious Invasion was extended</p>- The enemies lost their magical powers so they hired
+        assasins. The map extends to 20 areas now.
+      </li>
+      <p class="header">Balancing</p>
+      <li>Breezy Bounce VP nerfed: 2 VP -> 1 VP.
+        <p class="header">Other</p>
+      <li>A couple minor optimizations in code.</li>
+    </ul>
+    <h3>Update! 01/27/2022</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>
+        <p style="color: gold">New map - Peaceful Plains</p>- Traverse and chill through these rather easy and tranquil
+        plains.
+      </li>
+      <p class="header">Balancing</p>
+      <li>Neko Nightmare 38 has been nerfed</li>
+    </ul>
+    <h3>Great news! 01/21/2022</h3>
+    <ul>
+      <p class="header">Server</p>
+      <li>
+        <p style="color: gold">NA 2 and NA 3 are back!</p>- They are hosted on replit, which may make them run slightly
+        slower.
+      </li>
+      <p class="header">Other</p>
+      <li>The bug with dissapearing or flickering projectiles is fixed!</li>
+      <li>Small optimizations in the server code.</li>
+    </ul>
+    <h3>New map, hero, and duels! 01/08/2022</h3>
+    <ul>
+      <p class="header">Duels</p>
+      <li>Duels! Type /duel [name] [mode] into chat to send issue a challenge to your friends, and see who can survive
+        the longest!</li>
+      <li>Modes for duels: Classic, hard, crazy, space, battle, cold, and assorted!</li>
+      <p class="header">Maps</p>
+      <li>New map: Snail Salon! A new hero awaits at the end of this map!</li>
+      <li>Insidious Invasion has become strange... The enemies themselves remain the same, and yet they seem to have
+        gained illusion abilities. Don't get tricked by its duplicitous nature! VP awarded: 2vp -> 6vp</li>
+      <p class="header">Other</p>
+      <li>/dm is now available to supporters as well!</li>
+      <li>Particle hats can be added onto other hats as a special effect!</li>
+      <li>Bugs relating to kamino were fixed.</li>
+      <li>Visit #victory-logs in discord to see other people's victories!</li>
+    </ul>
+    <h3>Bug Fixes and Balancing! 01/02/2022</h3>
+    <li>Keyboard Kingdom is now 20 areas, and has been nerfed</li>
+    <li>Kamino's clone now dies from Corrosives!</li>
+    <h3>Happy New Years! 01/01/2022</h3>
+    <li>New map: Breezy Bounce!</li>
+    <li>New map: Present Parade!</li>
+    <li>Keyboard Kingdom has been modified.</li>
+    <li>There's snow! Toggle visibility through the settings menu.</li>
+    <li>A game crashing bug was fixed!</li>
+    <li>You can spectate other players in the same area now! Press tab to toggle between players.</li>
+    <h3>Balancing and QoL - 12/24/2021</h3>
+    <ul>
+      <p class="header">Balancing</p>
+      <li>Cellator's second ability no longer cancels its first</li>
+      <li>Dendo's stealth reduces its size to 80% and lasts 0.5 seconds longer</li>
+      <li>Kamino's clone is now 1.5x bigger and can take three hits before dying
+        <p class="header">Other</p>
+      <li>Fixed bugs with mouse movement, magno, rameses, cc1, janus, and minimap </li>
+      <li>Server name is now displayed onto the leaderboard </li>
+      <li>Map name, timer, and victory texts are drawn above enemies</li>
+      <li>You can open settings ingame by pressing ESC</li>
+      <li>Interpolation and particles are now available in the setting menu!</li>
+    </ul>
+    <h3>Small balancing update - 12/17/2021</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>I eat idiot has been extended. Now worth 4 VP and is 28 areas long!</li>
+      <li>Toilsome Traverse 80 was nerfed.</li>
+      <p class="header">Balancing</p>
+      <li>Cellator now only increases its size to 20% as opposed to 30%</li>
+      <li>Thoth aura size buffed 175 -> 200</li>
+      <li>Thoth second ability cooldown and enemy freeze time nerfed 2.5s -> 2s</li>
+      <li>Dendo's stealth cost reduced 20 -> 0 and gives you regen*2 energy back</li>
+      <li>Dendo's neutralizer cost reduced 2*regen + 10 -> 1.5*regen</li>
+      <p class="header">Other</p>
+      <li>Certain fonts have been changed.</li>
+    </ul>
+    <h3>Bug fix - 12/10/21</h3>
+    <ul>
+      <p class="header">Server</p>
+      <li>EU 2 is back!</li>
+      <p class="header">Other</p>
+      <li>Heusephades bug fix</li>
+      <li>Turr bug fix</li>
+    </ul>
+    <h3>Small Update - 12/9/21</h3>
+    <ul>
+      <p class="header">Other</p>
+      <li>Added a little bit more style into hero boxes in hero select screen to make it feel responsive</li>
+      <li>A bug with the spiral enemy was fixed</li>
+    </ul>
+    <h3>Optimization update - 12/7/21</h3>
+    <ul>
+      <p class="header">Other</p>
+      <li>Some minor code optimizations!</li>
+      <li>Fixed bug with some enemies</li>
+    </ul>
+    <h3>Super possibly things! - 12/3/21</h3>
+    <ul>
+      <p class="header">Hats</p>
+      <li>A new hat is obtained at the edge of the world. Adventure down the wrong way for long enough to find it.</li>
+      <li>Possibly a new hat added? It could be somewhere in some map that may or may not exist. you might find some
+        hints when getting the first hat...</li>
+      <p class="header">Other</p>
+      <li>Small optimizations in server</li>
+      <li>Bug fixes</li>
+    </ul>
+    <h3>Update...? - 11/29/21</h3>
+    <ul>
+      <li>Could maybe possibly be something?</li>
+    </ul>
+    <h3>New map and hero! - 11/29/21</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>New map: Little Land! Can you safely traverse through this strange seemingly small landscape?</li>
+      <p class="header">Heroes</p>
+      <li>New hero: Dendo! Find him at the end of Little Land.</li>
+      <p class="header">Other</p>
+      <li>Bug fixes with projectiles.</li>
+      <li>Cimex first ability fixed.</li>
+      <li>You may only have 7 clients per IP now.</li>
+    </ul>
+    <h3>Balancing changes and bug fix - 11/21/21</h3>
+    <ul>
+      <li> Neko Nightmare VP nerfed: <br>
+        3 -> 1 <br>
+        8 -> 4 <br>
+        13 -> 8 <br>
+        20 -> 15</li>
+      <li> Magmax, Cellator, and Neuid bugs fixed in Neko Nightmare</li>
+    </ul>
+    <h3>Big update today! - 11/19/21</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>New map: Neko Nightmare. Are you willing to brave through this nightmare?</li>
+      <p class="header">Heroes</p>
+      <li>New hero - Neko! Become one with the Neko!</li>
+      <li>Turr, Orbital, and Heusephades are buffed and balanced!</li>
+      <li>Orbital bug is fixed.</li>
+      <p class="header">Cosmetics</p>
+      <li>New hat at the end of Neko Nightmare!</li>
+      <p class="header">Other</p>
+      <li>You can play the game on your phone now!</li>
+      <li>you can disable the Nekos in Neko Nightmare through settings.</li>
+      <li>death/win screen now shows your name.</li>
+      <li>leaderboard shows the current server.</li>
+      <li>leaderboard is now colorful.</li>
+      <li>Various other bugs are fixed.</li>
+    </ul>
+    <h3>Bug fixes - 11/9/21</h3>
+    <ul>
+      <p class="header">Menu</p>
+      <li>Profile page now shows whether the player is banned and/or muted!</li>
+      <p class="header">Other</p>
+      <li>Fixed the bug when you had a gray sceen on joining the game</li>
+      <li>Fixed some other minor bugs</li>
+    </ul>
+    <h3>Chat spamming prevention - 10/29/21</h3>
+    <ul>
+      <p class="header">Chat & Commands</p>
+      <li>You will be muted for a certain amount of time or kicked from the game if you spam now!</li>
+    </ul>
+    <h3>Bug fixes - 9/29/21</h3>
+    <ul>
+      <p class="header">Heroes</p>
+      <li>Huge umbra bug fixed</li>
+      <p class="header">Other</p>
+      <li>Some optimizations</li>
+    </ul>
+    <h3>Major Update! 9/16/21</h3>
+    <ul>
+      <p class="header">Menu</p>
+      <li>The color scheme on the menu has been changed</li>
+      <p class="header">Maps</p>
+      <li>Map dimensions can now be changed!</li>
+      <li>New map: Immoral Inferno. Travel through a fiery abyss of darkness!</li>
+      <li>New map: Glamorous Glacier. What starts as an old human occupied base quickly descends to true wilderness.
+        Gives a new hero at 80!</li>
+      <li>New map: Permeating Perpetuity. Travel through eternity...</li>
+      <li>Some new maps have secret areas in them....</li>
+      <li>Speculative Stratosphere has been slightly nerfed</li>
+      <li>New map: Boss Brawl. Travel through the large enemies and discover a world of terror.</li>
+      <li>Mouse Mastery and Keyboard Kingdom have completely changed!</li>
+      <li>Default map sizes have been changed from 110x15 to 100x15. This may slightly buff all the maps</li>
+      <li>Exiting the sus amogus now gives you a hat to show you are no longer sus...</li>
+      <p class="header">Chat & Commands</p>
+      <li>Added /block and /unblock</li>
+      <li>Added /m or "PlayerName," to mention a player (highlighted for the player who got mentioned)!</li>
+      <p class="header">Heroes</p>
+      <li>Umbra's first ability now has a 3rd pulse which revives players</li>
+      <li>Cimex's web's max size has been buffed 120 -> 140</li>
+      <li>Scoria's trail lasts 2 seconds instead of 1.5, and now slows enemies by 50%</li>
+      <li>Kindle's second ability has been completely reworked</li>
+      <li>Verglas's first ability's cooldown is now 1.9 seconds instead of 2.3</li>
+      <li>Torpedo 1st ability now goes at 16 speed and is slightly bigger</li>
+      <li>Gizmo's 2nd ability now gives 0.7s of invincibility, but cooldown is reduced 9 to 8s</li>
+      <li>Kamino's clone can now take 2 hits. The first hit gives 0.5s invincibility to both you and the clone, and the
+        second hit does what the 1st ability used to do</li>
+      <li>Bugs with kamino has been fixed!</li>
+      <li>Thoth and Neuid no longer affect immune enemies</li>
+      <li>Magmax's flow is now an extra 5 speed</li>
+      <li>Parvulus now does not gain speed from being small. It's first ability range is nerfed 300->250px, but it's
+        second ability no longer slows you down</li>
+    </ul>
+    <h3>New maps! 9/12/21</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>Insidious Invasion is here! Can you survive the invasion?</li>
+      <li>Speculative Stratosphere is here! A short yet extremely challenging map made by Strat!</li>
+      <p class="header">Other</p>
+      <li> <a href="https://e2sandbox.adiprk.repl.co/">Evades2 Sandbox is here! (NA Server only)</a><br>
+        - /warp [area]<br>
+        - /tp [world]<br>
+        - r, /r, or /res<br>
+        - 'e' to go to start of area<br>
+        - 't' to go to end of area<br>
+        - /max to max energy<br>
+        - /god to toggle invincibility</li>
+    </ul>
+    <h3>Huge update! 9/9/21</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>Become sus has been reworked</li>
+      <li>New map... it is the opposite of enter the sus amogus... 120 areas, gives a total of 184 VP. Good luck
+        machining!</li>
+      <li>New secret map... complete a whole cycle to enter it..</li>
+      <li>New secret map... time it properly to enter... Code hint: 2.51.52.5</li>
+      <li>New map Roving Road, 40 areas long and utilizes new enemies! Gives Kamino, a new hero. Thanks Amasterclasher
+        for the idea!</li>
+      <li>Monumental Migration now properly gives Victory Points after 80</li>
+      <p class="header">Heroes</p>
+      <li>Umbra's 2nd ability now has 15 second cooldown</li>
+      <li>Anuket's first ability can shrink enemies now</li>
+      <li>Scoria's first ability now has larger range and slightly slows down enemies</li>
+      <li>Cimex's web is bigger, and you can click Z while its being shot to expand them instantly</li>
+    </ul>
+    <h3>Bug fixes, 9/8/21</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>Nerfed some difficulty spikes in Daunting Dimension</li>
+      <p class="header">Other</p>
+      <li>Fixed an exploit where you could chat in the hero selection screen, allowing you to bypass moderation commands
+      </li>
+      <li>Fixed leaderboard scrolling</li>
+    </ul>
+    <h3>Balancing, 9/6/21</h3>
+    <ul>
+      <p class="header">Heores</p>
+      <li>New hero, Umbra, unlocked at Daunting Dimension 80</li>
+      <li>Neuid reworked. 1st ability renamed to phase, now gives 1 second invincibility but you cannot interact with
+        players whilst fluidized just like old permastate. Cooldown time decreased 8s -> 7s and cost increased 10 -> 15.
+        2nd ability reworked, now fluidizes enemies in aura around you, fluidized enemies will not hurt you if you hold
+        shift or aren't moving.</li>
+      <li>Janus portal cost increased 20 -> 30 and cooldown increased 6s -> 8s but traversing the portals now give a 1s
+        invincibility.</li>
+      <li>Gizmo's 2nd ability now gives 1 second of invincibility</li>
+      <li>Magno's 2nd ability now pulls other dead players towards you</li>
+      <li>Thoth now has an actual 2nd ability</li>
+    </ul>
+    <h3>Small changes again, 9/5/21</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>Added Catastrophic Core</li>
+      <p class="header">Other</p>
+      <li>Fixed other players on minimap</li>
+    </ul>
+    <h3>Small changes, 9/4/21</h3>
+    <ul>
+      <p class="header">Heroes</p>
+      <li>Magmax harden is no longer affected by gravity balls</li>
+      <p class="header">Other</p>
+      <li>Demon hat is upgraded</li>
+    </ul>
+    <h3>Quality of life & balancing! 9/3/21</h3>
+    <ul>
+      <p class="header">Menu</p>
+      <li>Added settings in the main screen! Keybinds should work now.</li>
+      <p class="header">Maps</p>
+      <li>Nerfed Mouse Mastery!</li>
+      <p class="header">Chat & Commands</p>
+      <li>Added a help tool to /tp, /mute and /kick commands!</li>
+      <p class="header">Heroes</p>
+      <li>Fixed Visual bugs with heroes!</li>
+      <li>Panzer has recieved a rework to its first ability.</li>
+      <li>Anuket's first ability costs 8.5 -> 7.5 now</li>
+      <li>Cimex's second ability now gives 5 energy per enemy killed, up from 2</li>
+      <li>Felony's first ability cooldown is now 1 second</li>
+      <li>Scoria's first ability is now way bigger but costs 6 energy per second and doesn't slow enemies down anymore.
+        Scoria's second ability slows down enemies by 33% so rather fast enemies can still be caught.</li>
+      <li>Turr's first ability shoots more but second ability doesn't make it faster by much.</li>
+      <li>Fixed bug with turr shooting its turrets into the wall!</li>
+      <li>Thoth's tiers no longer reset when it dies or is disabled.</li>
+      <p class="header">Other</p>
+      <li>Spamming abilities doesn't break client cd timer now!</li>
+      <li>Ghost chat/players are hopefully fixed!</li>
+    </ul>
+    <h3>Small bugfix! 8/30/21</h3>
+    <ul>
+      <p class="header">Menu</p>
+      <li>Hero selection screen now shows where to get them when you hover over help</li>
+      <p class="header">Maps</p>
+      <li>Keyboard Kingdom is now 6 VP, up from 2</li>
+      <p class="header">Heroes</p>
+      <li>Felony second ability buffed back from 11 -> 7s</li>
+      <li>Fixed corrosive enemies on Neuid</li>
+      <p class="header">Other</p>
+      <li>Fixed mod tag</li>
+      <li>Fixed a game breaking bug which allowed people to crash the servers for extended periods of time</li>
+    </ul>
+    <h3>Huge update! 8/29/21</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>Arduous Abyss is now 6/12 vp, gives hat at 81</li>
+      <li>New map Daunting Dimension, a 120 area challenging adventure. Does not give a hat yet.</li>
+      <li>Reworked Monumental Migration+, 240 areas and only unique areas (except 91-95 and 211-215), gives a new hat!
+      </li>
+      <li>New map Hypnotic Hill, gives Magno at 41</li>
+      <li>New maps Mouse Mastery and Keyboard Kingdom</li>
+      <li>New map Monochrome Mission, gives Panzer at 21</li>
+      <li>The trials of the skill issue have begun. Find it by learning from him on the left side of the beginning.</li>
+      <li>Toilsome Traverse has been nerfed</li>
+      <p class="header">Heroes</p>
+      <li>New hero Gizmo, which you can unlock at Corrupted Core 81.</li>
+      <li>New hero Thoth, which you can unlock at Toilsome Traverse 81</li>
+      <li>Ptah speed and clay regen time nerfed</li>
+      <li>Cellator 1st ability size increase 40% -> 30% and 2nd ability invincibility time buffed from 1.2s -> 1.7s</li>
+      <li>Buffed Orbital's second ability</li>
+      <li>Buffed Neuid, now gains 0.5s invincibility if hit by an enemy too fast or large whilst fluidized</li>
+      <li>Buffed verglas's second ability to 5 shot to make it more usable, but made its cooldown 1.4s!</li>
+      <li>Turr's second ability lasts for 1.5 seconds now, up from 1 second. Turr's turrets have faster reload time.
+      </li>
+      <li>Torpedo's 2nd ability now shoots 9 bullets</li>
+      <p class="header">Chat & Commands</p>
+      <li>Fixed some bugs with chat</li>
+      <p class="header">Other</p>
+      <li>Fixed bug with retaliation and corrosive enemies</li>
+      <li>You can toggle tiles with P</li>
+    </ul>
+    <h3>Multiple Servers + More! 8/24/21</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>New map Tired Tavern, 20 areas and gives a new hero! Worth 10 VP!</li>
+      <li>Crazy Cosmos is now worth 1 VP. Crazy Cosmos Hard is now worth 5 VP.</li>
+      <p class="header">Heroes</p>
+      <li>Completely reworked Cimex</li>
+      <li>Anuket abilities costs less</li>
+      <li>Verglas 2nd ability has a very short cooldown now</li>
+      <li>Janus ability costs and cooldowns reduced</li>
+      <li>Turret reload is less for hero Turr</li>
+      <li>Nerfed magmax flow to 6 speed</li>
+      <p class="header">Other</p>
+      <li>Ability cooldowns are now displayed</li>
+      <li>Multiple servers added!</li>
+      <li>Fixed a bug where other players who were simply invincible seemed to have bandages</li>
+      <p class="header">OwO what's this</p>
+      <li>A new secret map, but</li>
+      <li>New secret hero, Felony...</li>
+      <li>Unless you can find him, be careful he has two faces..</li>
+      <li>Sus.. Become sus is even more sus...</li>
+
+    </ul>
+    <h3>More bug fixes! 8/23/2021</h3>
+    <ul>
+      <p class="header">Heroes</p>
+      <li>Ptah nerfed, 4 -> 3 layers</li>
+      <li>Hopefully fixed latch</li>
+      <p class="header">Other</p>
+      <li>Fixed description for Anuket</li>
+      <li>Endscreen now shows time, hero, and whether you have been saved in your run (solo)!</li>
+    </ul>
+    <h3>Bug fixes and balancing! 8/23/2021</h3>
+    <ul>
+      <p class="header">Maps</p>
+      <li>Nerfed Crazy Cosmos and Crazy Cosmos Hard, now worth 3 and 10 VP!</li>
+      <li>Nerfed Accelerating Aisle, now worth 4 VP!</li>
+      <li>Nerfed Atrocious Arena, now worth 3/8 VP!</li>
+      <li>Nerfed Methodical Monastery, and changed 31-40! Now worth 3 VP, and the hard verison 6 VP!</li>
+      <li>Scorching Shaft 81-160 has been removed.</li>
+      <li>Become sus has became a bit sus... have fun finding it now...</li>
+      <p class="header">Heroes</p>
+      <li>Kindle's 2nd ability has been reworked. Enemies can now ignite other enemies in a larger radius around them,
+        and the fire can only travel 400px around where you originally used the ability. Enemies now die for 2s -> 3s.
+      </li>
+      <li>Janus's portal now has a constant range</li>
+      <li>Fixed a bug where you can use Verglas's second ability while dead.</li>
+      <p class="header">Chat & Commands</p>
+      <li>Added supporter tag for those who have boosted our discord server. Thank you for your support!!! if you have
+        boosted the server for at least 1 month, you will permanently have the supporter tag!</li>
+      <p class="header">Other</p>
+      <li>Reworked Warp enemies, they should no longer be cancer</li>
+      <li>You can now hide hero card with H, lb with B, and chat with V</li>
+    </ul>
+    <h3>Initial Release! 8/22/2021</h3>
+    <ul>
+      <p class="header">The beginning!</p>
+      <li>16 heroes, of which 13 are unique and unlockable</li>
+      <li>17 maps</li>
+      <li>Accounts, with Victory Points - gained from beating maps!</li>
+    </ul>
+    <h3>7/29/2021</h3>
+    <ul>
+      <li>Work on the project has begun</li>
+    </ul>
+  </div>
+  <div id="settings" style="display: none;">
+    <h1>Settings</h1>
+    <div id="settingsContainer">
+      <p class="header">Keybinds
+        <button class="headerBtn warning" onclick="resetKeycodes()">Reset</button>
+      </p>
+      <div class="settingsEl">
+        <!--Move u-->
+        <p class="description">Move up</p>
+        <div class="contentLay">
+          <button class="keyCodeEl" aria-label="1" onclick="setKeycode(this)">KeyW</button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--Move l-->
+        <p class="description">Move left</p>
+        <div class="contentLay">
+          <button class="keyCodeEl" aria-label="2" onclick="setKeycode(this)">KeyA</button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--Move d-->
+        <p class="description">Move down</p>
+        <div class="contentLay">
+          <button class="keyCodeEl" aria-label="3" onclick="setKeycode(this)">KeyS</button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--Move r-->
+        <p class="description">Move right</p>
+        <div class="contentLay">
+          <button class="keyCodeEl" aria-label="4" onclick="setKeycode(this)">KeyD</button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--ab 1-->
+        <p class="description">Ability 1</p>
+        <div class="contentLay">
+          <button class="keyCodeEl double" aria-label="8" onclick="setKeycode(this)">KeyZ</button>
+          <button class="keyCodeEl double" aria-label="8" onclick="setKeycode(this)">KeyJ</button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--ab 2-->
+        <p class="description">Ability 2</p>
+        <div class="contentLay">
+          <button class="keyCodeEl double" aria-label="9" onclick="setKeycode(this)">KeyX</button>
+          <button class="keyCodeEl double" aria-label="9" onclick="setKeycode(this)">KeyK</button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--toggle-->
+        <p class="description">Toggle Leaderboard</p>
+        <div class="contentLay">
+          <button class="keyCodeEl" aria-label="01" onclick="setKeycode(this)">KeyB</button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--toggle-->
+        <p class="description">Toggle herocard</p>
+        <div class="contentLay">
+          <button class="keyCodeEl" aria-label="02" onclick="setKeycode(this)">KeyH</button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--toggle-->
+        <p class="description">Toggle tiles</p>
+        <div class="contentLay">
+          <button class="keyCodeEl" aria-label="03" onclick="setKeycode(this)">KeyP</button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--toggle-->
+        <p class="description">Toggle chat</p>
+        <div class="contentLay">
+          <button class="keyCodeEl" aria-label="04" onclick="setKeycode(this)">KeyV</button>
+        </div>
+      </div>
+      <p class="header">Other</p>
+      <div class="settingsEl">
+        <!--toggle-->
+        <p class="description">Tiles</p>
+        <div class="contentLay">
+          <button class="toggleEl" ev-enabled-if="toggleTiles==true" ev-enabled-val="Enabled" ev-disabled-val="Disabled"
+            onclick="localStorage.setItem('tiles-enabled', toggleTiles = !toggleTiles); changeToggleElVal(this)"></button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--toggle-->
+        <p class="description">Nekos</p>
+        <div class="contentLay">
+          <button class="toggleEl" ev-enabled-if="nekosEnabled==true" ev-enabled-val="Enabled"
+            ev-disabled-val="Disabled"
+            onclick="localStorage.setItem('nekos-enabled', nekosEnabled = !nekosEnabled); changeToggleElVal(this)"></button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--toggle-->
+        <p class="description">Mouse movement</p>
+        <div class="contentLay">
+          <button class="toggleEl" ev-enabled-if="mouseEnabled==true" ev-enabled-val="Enabled"
+            ev-disabled-val="Disabled"
+            onclick="localStorage.setItem('mouse-enabled', mouseEnabled = !mouseEnabled); changeToggleElVal(this)"></button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--toggle-->
+        <p class="description">Interpolation</p>
+        <div class="contentLay">
+          <button class="toggleEl" ev-enabled-if="interpolationEnabled==true" ev-enabled-val="Enabled"
+            ev-disabled-val="Disabled"
+            onclick="localStorage.setItem('interpolation-enabled', interpolationEnabled = !interpolationEnabled);changeToggleElVal(this)"></button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--toggle-->
+        <p class="description">Smoke</p>
+        <div class="contentLay">
+          <button class="toggleEl" ev-enabled-if="smokeEnabled==true" ev-enabled-val="Enabled"
+            ev-disabled-val="Disabled"
+            onclick="localStorage.setItem('smoke-enabled', smokeEnabled = !smokeEnabled);changeToggleElVal(this)"></button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--toggle-->
+        <p class="description">Snow</p>
+        <div class="contentLay">
+          <!--<button class="toggleEl" ev-enabled-if="snowEnabled==true" ev-enabled-val="Enabled" ev-disabled-val="Disabled" onclick="localStorage.setItem('snowEnabled-enabled', snowEnabled = !snowEnabled); toggleSnow(snowEnabled);changeToggleElVal(this)"></button>-->
+          <button class="toggleEl" ev-enabled-option="snowEnabled" ev-option-0-class="gray" ev-option-0-val="None"
+            ev-option-1-class="green" ev-option-1-val="Low" ev-option-2-class="orange" ev-option-2-val="Medium"
+            onclick="let nv = changeToggleElVal(this); localStorage.setItem('snowEnabled-option', snowEnabled = nv); this.setAttribute('ev-enabled-option', nv); toggleSnow(nv);"></button>
+        </div>
+      </div>
+      <div class="settingsEl">
+        <!--toggle-->
+        <p class="description">Particles</p>
+        <div class="contentLay">
+          <button class="toggleEl" ev-enabled-option="particlesOption" ev-option-0-class="gray" ev-option-0-val="None"
+            ev-option-1-class="green" ev-option-1-val="Low" ev-option-2-class="orange" ev-option-2-val="Medium"
+            ev-option-3-class="red" ev-option-3-val="High"
+            onclick="let nv = changeToggleElVal(this); localStorage.setItem('particles-option', particlesOption = nv); this.setAttribute('ev-enabled-option', nv)"></button>
+        </div>
+      </div>
+    </div>
+    <!-- localStorage.setItem("tiles-enabled", toggleTiles = !toggleTiles); -->
+    <button id="closeSettings" class="btn"><span>Back</span></button>
+  </div>
+  <div id="shopDiv" style="display: none;">
+    <h1>Shop</h1>
+    <div id="shopContainer">
+      <!--<div class="shopSeperator">Hats</div>
+            
+            <div class="shopItem">
+              <img src="./hats/Neko Hat.png"/>
+              <label id="item">Neko Hat</label>
+              <button shop-button cost="900" value="hat" extra="Neko Hat" 
+              owned-if="hats.includes('{{extra}}')"
+              lock-if="hats.includes('{{extra}}')||playerVp<{{cost}}"></button>
+              <div class="helpShopItem">
+                <div>
+                  <img src="./hats/Neko Hat.png">
+                  some sus text here!<br>
+                  neko hat hu?<br>
+                  yeyretrhrjhrt hhpkrtphkr p TOO SUS...
+                </div>
+              </div>
+            </div>
+            <div class="shopSeperator">Trails</div>
+						<div class="shopItem">
+							<img src="./hats/Sparkle Trail.png"/>
+							<label id="item">Sparkle trail</label>
+							<button shop-button cost="500" value="hat" extra="Sparkle Trail" 
+              owned-if="hats.includes('{{extra}}')"
+              lock-if="hats.includes('{{extra}}')||playerVp<{{cost}}"></button>
+              <div class="helpShopItem">
+                <div>
+                  Uwu, I sparkly, buy me please! I give you cuddles. Uwu!~
+                </div>
+              </div>
+						</div>
+						<div class="shopSeperator">Account</div>
+							<div class="shopItem">
+								<label id="item">Password change</label>
+								<button shop-button cost="50" prompt="Please enter your new password!" value="passchange" prompt-valid="promptPassValid"
+                lock-if="playerVp<{{cost}}"></button>
+                <div class="helpShopItem">
+                <div>
+                  AND THIS ONE<br>
+                  uses brbrbrbr
+                </div>
+              </div>
+							</div>
+							<div class="shopItem">
+								<label id="item">Name change</label>
+								<button shop-button cost="250" prompt="Please enter your new name!" value="namechange" prompt-valid="promptNameValid"
+                lock-if="playerVp<{{cost}}"></button>
+							</div>-->
+    </div><br>
+    <button id="closeShop" class="btn"><span>Back</span></button>
+  </div>
+  <!--<div class="playDiv">
+            <button class="play">Play!</a>
+         </div>-->
+  <div id="links">
+    <a href="https://discord.gg/qSGRTtc5v7" target="_blank" title="Join the Discord">
+      <img src="images/discord.png" width="50" height="50" />
+    </a>
+    <button id="changelogBtn" class="btn"><span>Changelog</span></button>
+    <button onclick="window.location.href='profiles/index.html'" id="profileBtn" class="btn"><span>Profiles</span></button>
+    <button id="settingsBtn" class="btn"><span>Settings</span></button>
+    <button id="modfBtn" class="btn" style="display:none;"><span>Moderation</span></button>
+    <button id="mapEditorBtn" class="btn"><span>Map Editor</span></button>
+    <button id="e1Btn" class="btn"><span>Check out Evades.io!</span></button>
+  </div>
+  </div>
+  <div id="hatSelection" style="display: none">
+    <h1>Hat Selection</h1>
+    <div id="hats-container"></div>
+    <div class="button-container">
+      <button id="back" class="btn"><span>Back</span></button>
+    </div>
+  </div>
+  <div id="serverSelection" style="display: none">
+    <h1 id="chooseText">Choose your server </h1>
+    <div class="serverList">
+    </div>
+  </div>
+  <div class="joinDiv" style="display: none">
+    <h1>Choose hero</h1>
+    <div class="heroList">
+      <div class="heroBox" id="magmax">
+        <div class="heroText">Magmax</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="magmaxHelp">
+
+        </div>
+        <div class="hero-tooltip" style="display:none;" id='magmaxTooltip' class="magmax">
+          <div class="wheretoget">Pre included.</div>
+          <div class="abilityone">
+            Flow - Increases your speed by 5. Uses 2 energy/s.
+          </div>
+          <div class="abilitytwo">
+            Harden - Becomes invincible but cannot move. Uses 12 energy/s.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="rameses">
+        <div class="heroText">Rameses</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="ramesesHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-middle" style="display:none" id='ramesesTooltip' class="rameses">
+          <div class="wheretoget">Pre included.</div>
+          <div class="abilityone">
+            Bandage - Warps bandages around self over 4s (8s in active zone) moving 50% slower. Gives 10% less effect
+            from auras with band on. If hit with bandages on, they fall off over 1s, keeping you safe. Costs 40 energy.
+          </div>
+          <div class="abilitytwo">
+            Latch - Shoots a homing projectile which teleports you to the player it hits. Costs 25 energy.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="jotunn">
+        <div class="heroText">Jotunn</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="jotunnHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-right" style="display:none" id='jotunnTooltip' class="jotunn">
+          <div class="wheretoget">Pre included.</div>
+          <div class="abilityone">
+            Decay [PASSIVE] - All enemies in a radius of you are 40% slower.
+          </div>
+          <div class="abilitytwo">
+            Shatter - Shatters enemies currently decayed, killing them for 4 seconds. 6 second cooldown, costs 30
+            energy.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="parvulus">
+        <div class="heroText">Parvulus</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="parvulusHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-left" style="display:none" id='parvulusTooltip' class="parvulus">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Dwindle: Slowly becomes smaller passively. Upon using this ability, becomes 30% bigger (with maximum of
+            normal size) while making enemies slower and smaller. The strength depends on your size. Costs 10 energy.
+          </div>
+          <div class="abilitytwo">
+            Retaliation: Become invincible for 1.4s, turning all enemies within near you into normal enemies for 6s. Can
+            only be used at minimum size - it returns you to normal size. Costs 25 energy
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="gizmo">
+        <div class="heroText">Gizmo</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="gizmoHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-middle" style="display:none" id='gizmoTooltip' class="gizmo">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Trojan: Injects a virus into all enemies in a radius of you to malfunction for 4 seconds. Any enemy which
+            touches these enemies will also malfunction for 3 seconds, but those cannot further transmit the virus. 6
+            second cooldown.
+          </div>
+          <div class="abilitytwo">
+            Dismantle: Drops a pad and boosts forward for 0.7 seconds, being invincible during the time. Other players
+            can boost via the pad and also gain invincibility. All enemies near the pad will become 80% smaller and 60%
+            slower for 4 seconds. Pad lasts 5 seconds, 8 second cooldown. Pad deletes itself after 2 uses.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="ptah">
+        <div class="heroText">Ptah</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="ptahHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-right" style="display:none" id='ptahTooltip' class='ptah'>
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Ceramic (Passive): Slowly grows a layer of ceramic. Ceramics increase your size and slows you down. If hit,
+            you lose a layer quickly. You can only naturally grow 2 layers, although you can get to 3 with your second
+            ability.
+          </div>
+          <div class="abilitytwo">
+            Shed: You need 1 layer to use this. Removes a layer of ceramic and throws it in your direction. Upon contact
+            with player, gives them a ceramic. Upon contact with enemy, enemy is freezed and your ceramic growth is sped
+            up. Costs 25 energy.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="cimex">
+        <div class="heroText">Cimex</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="cimexHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-left" style="display:none" id='cimexTooltip' class="cimex">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Lacework: Shoots 3 projectiles outward. Upon contact with enemy or wall, they expand into webs. Webs slow
+            enemies by 75% and last 6 seconds. Costs 30 energy, 7.5 second cooldown.
+          </div>
+          <div class="abilitytwo">
+            Devour: Kills, freezes, and disables the enemies in the webs for 4 seconds and gives you 5 energy per enemy
+            killed. All players in your webs will gain 10 energy per web they are in. Webs die upon use. Costs 5 energy.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="kindle">
+        <div class="heroText">Kindle</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="kindleHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-middle" style="display:none" id='kindleTooltip' class="kindle">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Implode: Shoots a bomb that explodes upon contact with enemy, killing all enemies nearby for 3s and
+            disabling for 7s. 9s cooldown. Costs 20 energy.
+          </div>
+          <div class="abilitytwo">
+            Ignite: Passive. Upon contact with enemy, uses 15 energy and kills it for 1.5s, with a 2s cooldown. Upon
+            killing 5 enemies, ignite enemies within a range of you, carrying the fire to further enemies, with 10
+            second cooldown.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="neuid">
+        <div class="heroText">Neuid</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="neuidHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-right" style="display:none" id='neuidTooltip' class="neuid">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Phase: Becoming a nonnewtonian fluid (invincible) for 2s. During this time, every enemy you hit will
+            increase the cooldown for the next ability. This is not affected by sniper bullets. Base Cooldown 0.5s.
+            Costs 10 energy.
+          </div>
+          <div class="abilitytwo">
+            Fluidize: Fluidize all enemies around you for 5s. Fluidized enemies will not kill you if you are holding
+            shift or aren't moving. Cooldown 3s. Costs 20 energy.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="orbital">
+        <div class="heroText">Orbital</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="orbitalHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-left" style="display:none" id='orbitalTooltip' class="orbital">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Guardian: Creates 3 guards which orbit around you and destroy any enemy it touches for 2s. It can kill 35
+            enemies before dying. Cooldown 30s. Costs 20 energy. Passive - If you are touching other orbitals, you will
+            lose energy due to gravitational interference.
+          </div>
+          <div class="abilitytwo">
+            Emergency: Guards become closer to you and orbit much faster for 2 seconds. Cooldown 3.5s. Costs 10 energy.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="janus">
+        <div class="heroText">Janus</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="janusHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-middle" style="display:none" id='janusTooltip' class="janus">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Portal: Creates 2 portals which you can traverse through. You gain 0.7s invincibility after teleporting
+            through a portal. You cannot teleport while invincible from the portal's effects. 6 second cooldown. Costs
+            15 energy.
+          </div>
+          <div class="abilitytwo">
+            Implode: Implode your portals which both create a small explosion killing enemies nearby. Costs 20 energy.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="turr">
+        <div class="heroText">Turr</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="turrHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-right" style="display:none" id='turrTooltip' class="turr">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Build: Creates a turret which shoots at the nearest alive enemy. The enemy is killed and disabled for 3
+            seconds upon hit. Costs 15 energy. 2.5s cooldown.
+          </div>
+          <div class="abilitytwo">
+            Crisis: Turrets have a faster reload and become triple shots for 1.5 seconds before dying. Costs 10 energy.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="anuket">
+        <div class="heroText">Anuket</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="anuketHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-left" style="display:none" id='anuketTooltip' class="anuket">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Drown: While active, all enemies within a radius of you become slower and smaller over time until they are
+            60% slower and 40% smaller. The more enemies drowned, the greater the radius. Costs <font
+              style="color:#999">energy regen * 3</font> energy per second.
+          </div>
+          <div class="abilitytwo">
+            Suffocate: Kills all enemies drowned for 1.5 seconds and teleports them to you. Enemies killed are also
+            frozen for 0.5 seconds. You become invincible for 1 second. 9 second cooldown. Costs 30 energy.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="heusephades">
+        <div class="heroText">Heusephades</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="heusephadesHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-middle" style="display:none" id='heusephadesTooltip' class="heusephades">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Element Orb: shoots an element projectile. There are 4 different types which rotates in the order of
+            air/fire/earth/water. Earth kills and freezes enemies, air pushes them back, water slows and shrinks them,
+            and fire explodes and kills enemies. Costs 10 energy with 1.25 second cooldown.
+          </div>
+          <div class="abilitytwo">
+            Unroll: your next element orb will shoot 3 orbs instead of one. 7 second cooldown.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="verglas">
+        <div class="heroText">Verglas</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="verglasHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-right" style="display:none" id='verglasTooltip' class="verglas">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Shimmer: Gain a boost of speed which fades away over 0.4s and become invincible for 0.5s. Costs 5 energy,
+            1.9s cooldown.
+          </div>
+          <div class="abilitytwo">
+            Water Jet: Shoots 7 projectiles which drags enemies with them. Enemies dragged are killed for 1.5s and
+            frozen for 0.5s. 3 second cooldown, costs 15 energy. 1.4s cooldown.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="torpedo">
+        <div class="heroText">Torpedo</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="torpedoHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-left" style="display:none" id='torpedoTooltip' class="torpedo">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Missile: Shoots a missile. Upon contact with enemies, the enemy is killed for 5 seconds. The missile drops
+            orbs which slows enemies drastically upon contact. Costs 20 energy, 8 second cooldown.
+          </div>
+          <div class="abilitytwo">
+            Snatch: Shoots 12 projectiles which circle around you then come back. All enemies touched are dragged with
+            the bullet. The enemies are also killed for 4 seconds after the bullet dies. Costs 10 energy, 5 second
+            cooldown.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="scoria">
+        <div class="heroText">Scoria</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="scoriaHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-middle" style="display:none" id='scoriaTooltip' class="scoria">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Magma: You leave behind a short but large trail of lava which minimizes and slows enemies for 2 seconds.
+            Costs 6 energy per second. You need more than 10 energy to initiate this ability.
+          </div>
+          <div class="abilitytwo">
+            Coagulate: Places a rock that lasts for 4 seconds. Enemies within a small radius of the rock are pulled into
+            it and killed. The more enemies pulled into it, the bigger the radius in which the rock will suck enemies
+            in. 9 second cooldown. Enemies being pulled are slowed by 33%. Costs 30 energy.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="cellator">
+        <div class="heroText">Cellator</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="cellatorHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-right" style="display:none" id='cellatorTooltip' class="cellator">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Diffusion: Slowly become larger but also gain speed and resistance to effects. Up to +7 speed boost and 15%
+            size increase and 40% resistance. Costs 3 energy/sec.
+          </div>
+          <div class="abilitytwo">
+            Super: Halt for 0.5s but also gain invincibility for 1.7s. Cost 20 energy. Cooldown 5 sec.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="felony">
+        <div class="heroText">Felony</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="felonyHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-left" style="display:none" id='felonyTooltip' class="felony">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            (passive) you are drunk - passively have a small sine wave applied to your movement. Drive: You cannot
+            change your movement direction but you move 8 speed faster. You are also way smaller during this. Shift will
+            freeze the hero in drive. No cost, 0.2 second cooldown.
+          </div>
+          <div class="abilitytwo">
+            Intoxicate: Drops a puddle which causes enemies to freeze and move like your drunk sine wave. Puddle causes
+            other players to also move like a sine wave but with lesser effect. Costs 20 energy, 7 second cooldown.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="panzer">
+        <div class="heroText">Panzer</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="panzerHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-middle" style="display:none" id='panzerTooltip' class="panzer">
+          <div class="wheretoget">Unknown</div>
+          <div class="abilityone">
+            Ironclad: Creates a small iron shield arond you for 5 seconds, causing you to move 33.33% slower but deflect
+            and disable all enemies. Deflecting enemies will also push you opposingly. The more enemies it hits, the
+            smaller the shield. If the shield becomes too small, it dies. 8 second cooldown.
+          </div>
+          <div class="abilitytwo">
+            Laminate: Drops a large iron ball. Enemies which touch it will carry molten iron on it for 5 seconds and
+            slowly harden and slow down. If a player touches enemies affected, the iron rapidly cools down and crumbles,
+            shatters the ball with it for 4 seconds. The dropped ball dies after 2.5 seconds. 9 second cooldown.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="magno">
+        <div class="heroText">Magno</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="magnoHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-right" style="display:none" id='magnoTooltip' class="magno">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Repel: Repels enemies within 140 range from you for 1.5 seconds. You are also repelled in the opposite
+            direction. 3 second cooldown, costs 15 energy.
+          </div>
+          <div class="abilitytwo">
+            Attract: (PASSIVE) Go towards the nearest alive player when downed. Pulls dead players to you when alive.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="thoth">
+        <div class="heroText">Thoth</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="thothHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-left" style="display:none" id='thothTooltip' class="thoth">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Brew: Buff players around you. Amount of buff depends on the tier. Tier resets when aura is cancelled. Costs
+            2/s regardless of regen.
+            Tier 1: +0.5 speed
+            Tier 2: +1.5 regen (makes cost 0.5/s)
+            Tier 3: +1.5 speed
+            Tier 4: Revive all players in aura when cancelled and grant 1s invincibility.
+          </div>
+          <div class="abilitytwo">
+            Absorb: If brew is active, for every enemy in range get +10 energy and slow the enemy by 50% for 2s. Costs
+            15 energy and 2s cooldown.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="umbra">
+        <div class="heroText">Umbra</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="umbraHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-middle" style="display:none" id='umbraTooltip' class="umbra">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Dark Energy: Creates 2 pulses of darkness that push enemies out a bit. The first one slows and the second
+            one shrinks. If Umbra has been alive for the past 2 seconds, it will create a third pulse which revives
+            players and goes in your movement direction. Effects last 5 seconds. Costs 25 energy, 8 second cooldown.
+          </div>
+          <div class="abilitytwo">
+            Penumbra: Upon death, become a shadow, invincible for 2 seconds. You can revive players during this time. At
+            the end of this ability, you will die. Costs 30 energy to be toggled, 15 second cooldown.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="kamino">
+        <div class="heroText">Kamino</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="kaminoHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-right" style="display:none" id='kaminoTooltip' class="kamino">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Dark Clone: Creates a clone that reflects your movement on the other side of an across the center of the
+            area. The clone can tank three hits, each giving 0.5s of invincibility. 4 second cooldown, cooldown starts
+            when clone dies. Upon use with clone, uses 20 energy and teleports to your clone, giving you 0.5s
+            invincibility.
+          </div>
+          <div class="abilitytwo">
+            Arcane Laser: Creates a laser between you and your enemy. The laser minimizes enemies for 3 seconds and
+            kills them for 2 seconds, and also revives players. If you kill 10 enemies with the same clone, you gain 2
+            seconds of invincibility. Costs 8 energy per second.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="floe">
+        <div class="heroText">Floe</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="floeHelp">
+        </div>
+        <div class="hero-tooltip hero-tooltip-left" style="display:none" id='floeTooltip' class="floe">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Freezing Point: Toggles between Liquid and Solid. As Liquid, your hitbox is 40% smaller and you move 6 speed
+            faster, and in a small radius you revive players. In Solid state, the cold radiates through enemies, slowing
+            them by up to 80% depending on how close they are to you. Costs 10 energy, 5 second cooldown.
+          </div>
+          <div class="abilitytwo">
+            Permafrost: Shoots 6 shards of ice which upon contact with any player including yourself, gives a protective
+            ice layer which breaks after shattering an enemy or after 5 seconds of application. The shards of ice
+            themselves also shatter enemies on contact. Costs 30 energy, 9 second cooldown.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="neko">
+        <div class="heroText">Neko</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="nekoHelp"></div>
+        <div class="hero-tooltip hero-tooltip-middle" style="display:none" id='nekoTooltip' class="neko">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Cat: (PASSIVE) Neko enemies are not being attracted by you.
+          </div>
+          <div class="abilitytwo">
+            Tryhard: Upon use, gives you music. 162 second cooldown.
+          </div>
+        </div>
+      </div>
+
+      <div class="heroBox" id="dendo">
+        <div class="heroText">Dendo</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="dendoHelp"></div>
+        <div class="hero-tooltip hero-tooltip-right" style="display:none" id='dendoTooltip' class="dendo">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Stealth: Raise up a small barrier for 5s which makes you invisible to enemies, reduces size to 40%, and
+            gives you <font style="color:#999">energy regen * 2</font> energy! Costs 0 energy, 6 second cooldown.
+          </div>
+          <div class="abilitytwo">
+            Neutralizer: Disable all enemy auras in a 250px range. Costs
+            <font style="color:#999"> energy regen * 2</font> energy per second.
+          </div>
+        </div>
+      </div>
+
+      <div class="heroBox" id="quetzal">
+        <div class="heroText">Quetzal</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="quetzalHelp"></div>
+        <div class="hero-tooltip hero-tooltip-left" style="display:none" id='quetzalTooltip' class="quetzal">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Slime: [Passive] - Hero permanently moves 2 speed slower. [Activated] - Creates a slime trail that gives +4
+            speed (+6 to quetzals) on contact and slows enemies by 60%, and also disables them. Costs 4 energy per
+            second. You need more than 8 energy to initiate this ability.
+          </div>
+          <div class="abilitytwo">
+            EsCargo: Shoot a fast shell that bounces off walls. Shatters and freezes enemies for 2 seconds on contact,
+            and can carry dead players. Use this ability again while an escargo is active to reverse its direction.
+            Costs 30 energy, 8 second cooldown.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="paladin">
+        <div class="heroText">Paladin</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="paladinHelp"></div>
+        <div class="hero-tooltip hero-tooltip-middle" style="display:none" id='paladinTooltip' class="Paladin">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Strength: Shoots a boomerang which comes back to you after a while. It revives any players it touches,
+            including yourself. 12 second cooldown. Costs 40 energy.
+          </div>
+          <div class="abilitytwo">
+            Luxury: Slowly increases player radius. Once you reach 146.5% player radius, you are safe. Once you touch a
+            ball, you will gain invincibility depending on how long you survived with slowly increasing radius. 10
+            second cooldown (after invincibility ends). Costs 25 energy. Note - safezones will decrease your size slowly
+            instead.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="seiun">
+        <div class="heroText">Seiun</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="seiunHelp"></div>
+        <div class="hero-tooltip hero-tooltip-right" style="display:none" id='seiunTooltip' class="Seiun">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Oscillate: The hero will automatically operate on a 3 second cycle. For the last second in the cycle, you
+            will be invincible. Using the ability resets the cycle to the start at no cost. You cannot save people with
+            invincible in this ability.
+          </div>
+          <div class="abilitytwo">
+            Energy Transfer: Teleport forwards 225 pixels. Kills enemies upon contact for 5 seconds and grants 100ms
+            invincibility. Costs 1 energy, 0.5 second cooldown.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="celestial">
+        <div class="heroText">Celestial</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="celestialHelp"></div>
+        <div class="hero-tooltip hero-tooltip-left" style="display:none" id='celestialTooltip' class="Celestial">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Safe Return (PASSIVE): If you are moving towards the previous safe zone you touched at sufficient speed
+            (ignoring any aura effects, minimum of 8.5 speed), then you will be invincible.
+          </div>
+          <div class="abilitytwo">
+            Timewarp: Teleports to the area that you newly entered 10 before the newest area you entered. This sounds
+            confusing, but a number is shown on the ability. 60 second cooldown, costs 100 energy. This ability revives
+            you. When you first click the ability, a 3 second cooldown occurs. You must keep the key held down for these
+            3 seconds, otherwise, the ability will not activate. This is so that you cannot accidentally toggle it.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="electrode">
+        <div class="heroText">Electrode</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="electrodeHelp"></div>
+        <div class="hero-tooltip hero-tooltip-middle" style="display:none" id='electrodeTooltip' class="Electrode">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Beta Decay: Spins 8 electrons around you. These electrons are harmless until you use the ability again,
+            which releases them, killing, disabling, and giving an aura which awards energy to enemies for 4s. This
+            energy aura is less effective on electrodes compared to other heroes. Costs 45 energy, 6.5s cooldown.
+          </div>
+          <div class="abilitytwo">
+            Static Electricity: 100 max energy and 0 regen everywhere. Energy is gained via closeness to enemies (if in
+            enemy, this is disabled for 0.6s). Instead of dying, energy will be taken. Hitting 0 energy kills you.
+            Electrode is also less sensitive to draining auras and other heroes' regen buffs. Gains minimal energy in
+            safezones.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="sicario">
+        <div class="heroText">Sicario</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="sicarioHelp"></div>
+        <div class="hero-tooltip hero-tooltip-right" style="display:none" id='sicarioTooltip' class="Sicario">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Gun Down: Shoots a bullet which slows enemies by 90% for 1.7s and kills them for 3s. The bullet slowly
+            shrinks, but the more enemies hit, the larger the bullet becomes. The bullet even gains size from immunes.
+            If the bullet reaches 0 size, it dies. (The bullet has a maximum size and lifespan). Costs 5 energy, 3
+            second cooldown.
+          </div>
+          <div class="abilitytwo">
+            Sneak: Becomes invincibile, invisible to enemies, and immune to aura effects for 2.5 seconds. If you touch
+            other players during this time, they also become invisible to enemies until the end of your ability
+            duration. During this time, you slowly slow down to a minimum of 4 speed. Speed is instantly returned when
+            the ability ends. Costs 30 energy, 9 second cooldown.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="megarim">
+        <div class="heroText">Megarim</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="megarimHelp"></div>
+        <div class="hero-tooltip hero-tooltip-left" style="display:none" id='megarimTooltip' class="Megarim">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            Cloak: If used when alive, gain 0.2s invincibility and shoots a projectile, if the projectile touches an
+            enemy, swap positions with enemy and gain 0.6s invincibility. Costs 10 energy, 1.5s cooldown. If used when
+            dead, increase player size by a bit. Upon revival, size is reset. Costs 10 energy, 1s cooldown.
+          </div>
+          <div class="abilitytwo">
+            Displace: Teleport towards the last safezone touched. Max teleport distance of 25% of area length. Grants 1s
+            of invicibility if used while alive. Increases death timer by 5s if used while dead. Costs 30 energy, 8
+            second cooldown.
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="tycoveka">
+        <div class="heroText">Tycoveka</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="tycovekaHelp"></div>
+        <div class="hero-tooltip hero-tooltip-middle" style="display:none" id='tycovekaTooltip' class="Megarim">
+          <div class="wheretoget">Hidden in the depths of Lifeless Laboratory 30.</div>
+          <div class="abilityone">
+            ???
+          </div>
+          <div class="abilitytwo">
+            ???
+          </div>
+        </div>
+      </div>
+      <div class="heroBox" id="lavablob">
+        <div class="heroText">Lavablob</div>
+        <div class="heroCircleContainer">
+          <div class="heroCircle"></div>
+        </div>
+        <div class="heroHelp" id="lavablobHelp"></div>
+        <div class="hero-tooltip hero-tooltip-right" style="display:none" id='lavablobTooltip' class="Lavablob">
+          <div class="wheretoget">Unknown.</div>
+          <div class="abilityone">
+            50 energy ??? track 3/2??? heal 5 ???
+          </div>
+          <div class="abilitytwo">
+            35 energy ??? bubble 10 ??
+          </div>
+        </div>
+      </div>
+      <div class="bigBox"></div>
+    </div>
+  </div>
+
+  <div class="trollage" style="display:none;">
+    <video id="trollageVideo">
+      <source src="images/video.mp4" type="video/mp4">
+      Your browser does not support this survey! Please change browsers.
+    </video>
+  </div>
+  <div class="trollage2" style="display:none;">
+    <video id="trollageVideo2">
+      <source src="images/drip.mp4" type="video/mp4">
+      Your browser does not support this survey! Please change browsers.
+    </video>
+  </div>
+  <div class="trollage3" style="display:none;">
+    <video id="trollageVideo3">
+      <source src="images/snow.mp4" type="video/mp4">
+      Your browser does not support this survey! Please change browsers.
+    </video>
+  </div>
+  <div class="trollage4" style="display:none;">
+    <video id="trollageVideo4">
+      <source src="images/frozen.mp4" type="video/mp4">
+      Your browser does not support this survey! Please change browsers.
+    </video>
+  </div>
+  <div class="trollage5" style="display:none;">
+    <video id="trollageVideo5">
+      <source src="images/rain.mp4" type="video/mp4">
+      Your browser does not support this survey! Please change browsers.
+    </video>
+  </div>
+  <div class="ricksquareclass" style="display:none;">
+    <video id="ricksquare">
+      <source src="images/ricksquare.mp4" type="video/mp4">
+      Your browser does not support this survey! Please change browsers.
+    </video>
+  </div>
+
+  <div class="captcha" style="display:none;">
+    <div class="h-captcha" data-sitekey="879752d6-8c24-4713-99aa-2de2ff493eeb"></div>
+    <!-- <div class="toggleEl" ev-enabled-option="console.log(1345345)"></div> -->
+  </div>
+  <div class="loading" style="">
+    <h1 class="loadingText">Connecting...</h1>
+  </div>
+  <div class="game" style="display: none">
+    <canvas id="canvas" width="1360" height="765" style="z-index: 1"></canvas>
+    <canvas id="smokeCanvas" width="1360" height="765" style="z-index: 1"></canvas>
+    <canvas id="atomicCanvas" width="1360" height="765" style="z-index: 2"></canvas>
+
+    <div id="chatUI">
+      <div id="chat" data-type="default" data-perm="true" oncontextmenu="return!1"></div>
+      <input id="chatInput" oncontextmenu="return!1" autocomplete="off" maxlength=240 placeholder="Press enter to chat"
+        lock-chat>
+      <div class="chatInputHelper" lock-chat></div>
+      <div class="chatInputOtherCounter"></div>
+    </div>
+    <button id="modBtn"
+      style="position: absolute;z-index: 11;transform: translateX(20vw);width: 2vw;height: 1.5vw;padding: 0px;font-size: 1vw;display:none;"
+      onclick="modElement.toggleRender()">M</button>
+    <div id="leaderboard">
+      <div class="header">Leaderboard</div>
+      <div class="container"></div>
+    </div>
+  </div>
+  <canvas id="snow" class="snowCanvas"></canvas>
+  <script type="text/javascript" src="../cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+  <script src="entities.js"></script>
+  <script src="interp.js"></script>
+  <script src="consts.js"></script>
+  <script src="GUIElements.js"></script>
+  <script src="smoke.js"></script>
+  <script src="client.js"></script>
+
+</body>
+
+
+<!-- Mirrored from 45.61.62.63/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 May 2025 23:27:46 GMT -->
+</html>

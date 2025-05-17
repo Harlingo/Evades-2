@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    
+<!-- Mirrored from 45.61.62.63/profiles/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 May 2025 23:29:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+        <title>Profiles</title>
+        <link href="style.css" rel="stylesheet" type="text/css" type='text/css' />
+    </head>
+    <body>
+			<div class="bg"></div>
+		<h1>Profiles</h1>
+		<form id="userLookup" onsubmit="return false;">
+			<input id="username" type="text" placeholder="Username">
+			<input id="submitbtn" type="submit" value="Search">
+		</form>
+    <div class="spinContainer">
+    <div class="spin" style="display: none"></div>
+    </div>
+		<div id="error"></div>
+		<table id="dataDisplay" style="display: none;">
+			<thead><tr><td>Username</td><td id="user"></td></tr></thead>
+			<tbody>
+				<tr><td>Age</td><td id="age"></td></tr>
+        <tr><td>Type</td><td id="type"></td></tr>
+				<tr><td>Total VP</td><td id="vp"></td></tr>
+				<tr><td>Current VP</td><td id="currentvp"></td></tr>
+				<tr><td>VP Spent</td><td id="vpspent"></td></tr>
+				<tr><td>Heroes</td><td id="heroes"></td></tr>
+				<tr id="mute" class="hidden" style="background-color: #c37e00;"><td colspan="2">Muted</td></tr>
+				<tr id="ban" class="hidden" style="background-color: #c30000;"><td colspan="2">Banned</td></tr>
+			</tbody>
+		</table>
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="../__/firebase/8.2.4/firebase-app.html"></script>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+			https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="../__/firebase/8.2.4/firebase-analytics.html"></script>
+
+		<!-- Initialize Firebase -->
+		<script src="../__/firebase/init.html"></script>
+
+		<script src="script.js"></script>
+    </body>
+
+<!-- Mirrored from 45.61.62.63/profiles/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 May 2025 23:29:45 GMT -->
+</html>

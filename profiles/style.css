@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&amp;display=swap');
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(20, 20, 20);
+  text-align: center;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  overflow: hidden;
+}
+p, div{
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+h1{
+  color: rgb(168, 168, 168);
+  font-size: 60px;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 47px;
+}
+form {
+	text-align: center;
+}
+input[type=text], input[type=password] {
+  padding: 5px;
+  font-size: 1.5rem;
+  color: #1f1633;
+  background-color: rgba(241, 239, 239, 0.575);
+  width: 15%;
+  text-align: left;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  margin-right: 20px;
+  /*text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;*/
+  /*border: 1px solid #cccccc;*/
+  /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;*/
+  outline: none;
+  border:none;
+}
+input[type=submit] {
+  font-size:1.5rem;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border:none;
+  outline:none;
+  color:#0e0e0e;
+  background-color: rgb(206, 206, 206);
+  transition: all 0.5s ease;
+  border-radius: 0.3rem;
+}
+input[type=submit]:hover {
+  background-color: rgb(152, 172, 172);
+  cursor: pointer;
+  color:#000000;
+}
+#error {
+	color: red;
+	size: 2rem;
+	margin-top: 20px;
+	text-align: center;
+}
+table {
+	background-color: rgb(60, 60, 60);
+	margin-right: auto;
+	margin-left: auto;
+	border-collapse: collapse;
+  margin-top: 10px;
+}
+th, td {
+	padding: 10px;
+	size: 3rem;
+	border-collapse: collapse;
+	border: 1px solid black;
+	color: rgb(206, 206, 206);
+}
+.spinContainer{
+  width: 100%;
+  height: 40px;
+}
+@keyframes spinner {
+    0% {
+      transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    }
+    100% {
+      transform: translate3d(-50%, -50%, 0) rotate(360deg);
+    }
+  }
+.spin {
+  animation: 1s ease infinite spinner;
+  animation-play-state: inherit;
+  border: solid 10px #cfd0d1;
+  border-top-color: #1c87c9;
+  border-radius: 50%;
+  content: "";
+  height: 70px;
+  width: 70px;
+  top: 200px;
+  left: 50%;
+  position: absolute;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+}
+
+.hidden{
+  display: none;
+}
+.bg {
+		left: 0px;
+		top: 0px;
+		width: 100vw;
+		height: 100vh;
+		background: linear-gradient(-45deg, #6d53ee, #df588c, #23a6d5, #23d5ab);
+		position: absolute;
+		background-size: 400% 400%;
+		animation: gradient 30s ease infinite;
+		opacity: 0.1;
+		pointer-events: none;
+}
+@keyframes gradient {
+		0% {background-position: 0% 50%;}
+		50% {background-position: 100% 50%;}
+		100% {background-position: 0% 50%;}
+}
